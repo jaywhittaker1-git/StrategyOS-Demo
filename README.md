@@ -1,96 +1,91 @@
 # StrategyOS
 
-### An AI-powered strategy operating system.
+A strategy intelligence platform that connects fourteen analytical 
+frameworks into a single asset graph, runs a continuous coherence 
+engine across them, and surfaces conflicts, assumptions, and signals 
+through a conversational reasoning surface built on MCP.
 
-## The Big Picture: Beyond Static Planning
+Built solo. Live. Not a prototype.
 
-Strategy has long been trapped in slide decks and static documents — disconnected from the logic that defines an organization. StrategyOS is an **operating system for organizational logic**, designed to shift strategy from a narrative exercise into a dynamic, interconnected **Strategy Knowledge Graph**.
+---
 
-### Why This is Different
+## The problem
 
-StrategyOS is fundamentally different from traditional planning tools:
+Strategy work is fragmented by design. A Wardley Map here, OKRs 
+there, a financial model in a spreadsheet. AI knowledge systems make 
+this worse — they return everything, including stale thinking and 
+half-formed ideas, with no way to know what still holds.
 
-*   **Connected vs. Isolated**: In most tools, a Wardley Map and an OKR tracker are separate documents. In StrategyOS, they are nodes in a single graph. A change in your competitive landscape (Wardley Map) automatically ripples through to flag risks in your strategic bets.
-*   **The Two-Surface Model**: We separate spatial reasoning from deep inquiry. The web application handles spatial mapping and structure (showing what things *are*), while the conversational surface acts as an active coaching partner (explaining what things *mean*).
-*   **Intelligent vs. Static**: Traditional plans are obsolete the moment they are printed. StrategyOS continuously audits your strategy workspace — detecting structural tensions, capability gaps, and misaligned objectives without waiting for your quarterly review.
-*   **Structural vs. Narrative**: We focus on the *causality* and *logic* of strategy. By using rigorous frameworks like Wardley Maps and causal systems maps, StrategyOS detects logical fallacies and strategic weaknesses that prose alone would hide.
+StrategyOS treats a strategy as a connected graph of analytical 
+assets, not a collection of documents. The intelligence layer runs 
+across all of them continuously — not on demand, not after a prompt.
 
-## Intelligence Assembly & Conversational Coaching
+---
 
-Every strategic asset generates a focused intelligence briefing — a one-sentence headline, tiered insights (urgent / cross-layer / noted), and the single most urgent signal requiring attention.
+## What it does
 
-With our new **Conversational Surface**, this intelligence is deeply interactive:
-- **Chat to Web App**: You can explore gaps, stress-test assumptions, and make decisions via chat. The system extracts structured data and writes it back to the asset graph with proper provenance. 
-- **Enrichment Loop**: The AI (powered by Claude Sonnet) proactively asks questions to calibrate your confidence or fill out missing falsification conditions without a complex form.
-- **Signal Coverage**: Detects diagnostic categories (like fragile dependencies, capability gaps, efficiency gaps) and allows you to converse directly about each signal to resolve conflicts.
+**Coherence engine** — 18 deterministic pattern detection functions 
+run at lock-time across the asset graph. No AI involved. Pure logic. 
+Surfaces conflicts like: an OKR assuming market leadership in a 
+segment the Wardley Map shows as commodity. Flags it, classifies it, 
+attaches it to the affected assets.
 
-## Enterprise Map
+**Intelligence pipeline** — AI-generated briefings, signal 
+classification, and assumption extraction run per-asset using Claude 
+Haiku (routing/classification) and Claude Sonnet (synthesis). Prompt 
+caching on all system prompts (~90% input token reduction). Every AI 
+call is POST-only, user-initiated — no GET or mount triggers.
 
-StrategyOS builds a **semantic map of your business** from your strategic assets — automatically. It extracts concepts (actors, systems, processes, capabilities, data stores, artifacts), classifies them into AI-generated business domains, and maps relationships between them.
+**MCP conversational surface** — A standalone Python FastMCP server 
+exposes 27 tools via the Model Context Protocol. External agents 
+(Claude Desktop, third-party workflows) can read the asset graph, 
+reason over it, and write structured findings back with full 
+provenance. Dry-run by default — every write previews before it 
+commits. All writes tagged with source, session ID, and timestamp.
 
--   **Domain columns**: Concepts organised into semantic business domains (Customer, Product, Operations, Platform, etc.) — derived from meaning, not graph topology.
--   **Capability clusters**: Within each domain, concepts group into abstract business capabilities.
--   **Relationship threading**: Hover any concept to reveal dashed connector threads to related concepts in other domains. The rest of the graph dims to reduce noise.
--   **Explorer view**: A data-dense hierarchical list (Domain → Cluster → Concept) with sortable columns, bulk selection, search filtering, and inline editing.
--   **Hybrid overrides**: User edits (domain reassignment, rename) persist as a patch layer on top of AI-generated structure. Regenerate domains and your manual assignments survive.
+**External enrichment** — Live integrations: Wikidata (ontology 
+enrichment at lock-time), Upstash (rate limiting on all AI routes). 
+Planned: Semantic Scholar (evolution signals for Wardley components), 
+regulatory feeds (ASIC, APRA, RBA), RSS with entity anchoring, ABS 
+financial benchmarks. External data never modifies an asset directly 
+— it always surfaces a signal for human review.
 
-## The Strategy Lifecycle
+---
 
-StrategyOS enforces a rigorous approach to building organizational logic:
+## Asset graph
 
-1.  **Orient**: Anchor the strategy in the specific domain and problem space.
-2.  **Gather**: Capture signals and context through guided AI-assisted flows or natural language queries.
-3.  **Confirm**: The AI pre-fills models (Wardley, OKRs, etc.) based on upstream context; the human validates the reasoning.
-4.  **Lock & Audit**: Once locked, assets enter the intelligence layer where they are cross-calibrated for coherence and become available for conversational deep-dives via our MCP tools.
+14 connected frameworks: Problem Statement · Decision Stack · 
+Competitive Landscape · Stakeholder Architecture · Wardley Map · 
+Capabilities · Dynamics Map · Customer Journeys · Bet Portfolio · 
+OKR Cascade · Operating Model · Initiatives · Financial Model · 
+Technology & Data Map
 
-## Strategic Asset Inventory
+Plus: Strategy Pulse · Input parsing · Ontology · External 
+integrations
 
--   **Decision Stacks**: The "Why" — Mapping vision to principles and trade-offs.
--   **Wardley Maps**: The "Where" — Visualizing value chains and evolutionary pressure.
--   **OKR Cascades**: The "What" — Aligning metrics to strategic intent.
--   **Systems Maps (CLDs)**: The "How" — Modeling causal feedback loops.
--   **Stakeholder Architectures**: The "Who" — Highlighting influence vs. interest.
--   **Problem Frames**: Synthesises structured problem statements mapping current reality to desired outcomes.
--   **Strategic Bets**: Identifying irreversible, high-consequence commitments shaping downstream choices.
--   **Capability Maps**: Evaluates required capabilities aligned to strategic domains by operational maturity.
--   **Operating Models**: Connects strategic capabilities to accountable teams, processes, and governance rhythms.
--   **Enterprise Architectures**: Structures presentation, application, data, and infrastructure integrations.
--   **Competitive Landscapes**: Assesses competitor profiles, moats, and strategic positioning.
--   **Technology & Data Map**: Maps the full tech estate across five layers (Engagement, Application, Integration, Data, Infrastructure) using a catalogue of 83 categories grounded in TBM v5.0.1. Generated from multi-signal business context (Wardley, OKR, Financial, Problem Statement). Category co-occurrence patterns self-improve over time as more maps are generated in production.
+---
 
-## MCP Capabilities
+## Development harness
 
-The Conversational Surface uses the Model Context Protocol (MCP) to provide interactive capabilities to the Next.js panel and to external hosts like Claude Desktop. 
+Development runs through a Claude Code harness with four layers:
 
-**Entry-Point Tools (Conversational Analysis):**
-- `strategy_briefing`: Provides an intelligence dashboard covering active signals, coherence status, and recent insights.
-- `inspect_asset`: Retrieves a detailed breakdown of a single asset, including tiered insights and layered comparisons.
-- `ask_strategy`: Interprets natural language questions, classifies the intent, and composes synthetic analytical responses.
-- `strategy_overview`: Evaluates overall strategy health, surfacing both existing and missing assets to drive recommended actions.
+- **Session lifecycle hooks** — branch status injection, cost 
+  optimisation checks on AI file writes, architecture rule injection 
+  before context compaction
+- **Auto code-review agent** — Sonnet reviews every staged diff 
+  before commit: bugs, security, type errors, architecture violations
+- **Pre-push gate** — four checks: lockfile sync, tsconfig path 
+  coverage, TypeScript, outputTemplate enforcement on all structured 
+  AI calls
+- **GitNexus skills** — code intelligence across 18,000+ symbols and 
+  300 execution flows for impact analysis before any shared code edit
 
-**Helper Tools (Data Enrichment & Curation):**
-- `capture_assumption`: Parses unstructured notes and conversationally writes new assumptions back to the asset.
-- `update_confidence`: Updates confidence scores based on conversational calibration dialogue.
-- `create_asset_link`: Discovers and creates physical links for cross-references between domains.
-- `run_coherence_check`: Triggers the coherence pipeline explicitly for active asset relationships.
-- `search_assets`, `get_signal_detail`, `get_asset_detail`: Precision lookups extracting explicit contextual nodes for AI routing.
+---
 
-## Technical Architecture
+## Stack
 
-StrategyOS operates as a **capability-routed orchestrator** across two shared interaction surfaces:
-
-### 1. Web Application (Next.js)
-Built for spatial canvases and structure.
--   **Capability Registry**: 40+ registered AI capabilities across strategy analysis, asset generation, signal detection, ontology mapping, and coherence synthesis. Each is a pure function with Zod-validated input/output schemas.
--   **Orchestrator & Context Assembler**: Coordinates multi-step AI workflows building high-fidelity prompts from live workspace state.
-
-### 2. Conversational Model Context Protocol (MCP) Server
-A standalone Python FastMCP server delivering the conversational surface.
--   **Two-Tier Model Routing**: Uses Claude Haiku for question classification/routing, and Claude Sonnet for deep analytical evaluation and coaching responses.
--   **Dynamic Response Composer**: Turns structured intelligence data into native Prefab UI component trees based on the user's inquiry (e.g., comparison grids, gap analysis cards). 
--   **Dual Hosting Models**: 
-    - Exposes a `/conversation` endpoint serving the Next.js app's embedded 440px Side Panel and full-page Intelligence Screen.
-    - Exposes MCP tools directly to Claude Desktop and external hosts via `stdio`.
+Next.js 16 · React 19 · TypeScript 5 · Supabase · React Flow · 
+Zustand · Python · FastMCP · Claude (Anthropic) · Vitest · Playwright
 
 ## Development
 
