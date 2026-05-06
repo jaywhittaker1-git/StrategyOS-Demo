@@ -25,16 +25,16 @@ const ASSET_NAV = [
 ] as const
 
 const GRAPH_NODES = [
-  { id: 'n1', type: 'enterprise', label: 'Win mid-market', x: 86, y: 72, w: 156 },
-  { id: 'n2', type: 'okr', label: 'NRR ≥ 118%', x: 318, y: 56, w: 160 },
-  { id: 'n3', type: 'okr', label: 'Logo growth +40%', x: 318, y: 132, w: 172 },
-  { id: 'n4', type: 'decision', label: 'Usage-based pricing', x: 562, y: 96, w: 184, hot: true },
-  { id: 'n5', type: 'bets', label: 'Vertical agents', x: 562, y: 200, w: 168 },
-  { id: 'n6', type: 'experiment', label: 'Pricing pilot', x: 818, y: 60, w: 156 },
-  { id: 'n7', type: 'signal', label: '3 mid-mkt churn', x: 818, y: 144, w: 168 },
-  { id: 'n8', type: 'financial', label: 'Pricing model v4', x: 818, y: 228, w: 172 },
-  { id: 'n9', type: 'task', label: 'Draft customer email', x: 1058, y: 96, w: 168 },
-  { id: 'n10', type: 'narrative', label: 'Pricing rationale', x: 1058, y: 196, w: 168 },
+  { id: 'n1', type: 'enterprise', label: 'Win mid-market', sub: 'Enterprise Goal', x: 86, y: 72, w: 156 },
+  { id: 'n2', type: 'okr', label: 'NRR ≥ 118%', sub: 'OKR · Q3', x: 318, y: 56, w: 160 },
+  { id: 'n3', type: 'okr', label: 'Logo growth +40%', sub: 'OKR · Q3', x: 318, y: 132, w: 172 },
+  { id: 'n4', type: 'decision', label: 'Usage-based pricing', sub: 'Decision · Open', x: 562, y: 96, w: 184, hot: true },
+  { id: 'n5', type: 'bets', label: 'Vertical agents', sub: 'Bet', x: 562, y: 200, w: 168 },
+  { id: 'n6', type: 'experiment', label: 'Pricing pilot', sub: 'Experiment', x: 818, y: 60, w: 156 },
+  { id: 'n7', type: 'signal', label: '3 mid-mkt churn', sub: 'Signal · 4d ago', x: 818, y: 144, w: 168 },
+  { id: 'n8', type: 'financial', label: 'Pricing model v4', sub: 'Financial', x: 818, y: 228, w: 172 },
+  { id: 'n9', type: 'task', label: 'Draft customer email', sub: 'Task · Mira', x: 1058, y: 96, w: 168 },
+  { id: 'n10', type: 'narrative', label: 'Pricing rationale', sub: 'Narrative', x: 1058, y: 196, w: 168 },
 ]
 
 const GRAPH_EDGES = [
@@ -51,7 +51,7 @@ const GRAPH_EDGES = [
   { from: 'n7', to: 'n4' },
 ] as const
 
-const NODE_HEIGHT = 36
+const NODE_HEIGHT = 44
 
 function getNodeById(id: string) {
   return GRAPH_NODES.find(n => n.id === id)!
@@ -108,10 +108,15 @@ function GraphCanvas() {
               fontFamily: mkt.font.sans,
             }}
           >
-            <ObjIcon type={node.type} size={16} />
-            <span style={{ fontSize: 12, color: mkt.color.textPrimary, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              {node.label}
-            </span>
+            <ObjIcon type={node.type} size={22} />
+            <div style={{ minWidth: 0, flex: 1 }}>
+              <div style={{ fontSize: 11.5, color: mkt.color.textPrimary, fontWeight: 500, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {node.label}
+              </div>
+              <div style={{ fontSize: 10, color: mkt.color.textMuted, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginTop: 2 }}>
+                {node.sub}
+              </div>
+            </div>
           </div>
         ))}
         <div style={{

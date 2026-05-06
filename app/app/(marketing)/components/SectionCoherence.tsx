@@ -81,7 +81,7 @@ export default function SectionCoherence() {
           </p>
         </motion.div>
 
-        {/* Inbox + copy */}
+        {/* Inbox + copy (window left, copy right — matching design) */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -93,46 +93,6 @@ export default function SectionCoherence() {
             alignItems: 'center',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <h3
-              style={{
-                fontFamily: mkt.font.sans,
-                fontSize: mkt.type.h3,
-                fontWeight: 700,
-                letterSpacing: mkt.tracking.h3,
-                color: mkt.color.textPrimary,
-                margin: 0,
-              }}
-            >
-              A coherence inbox, not a report
-            </h3>
-            <p
-              style={{
-                fontFamily: mkt.font.sans,
-                fontSize: mkt.type.body,
-                lineHeight: mkt.leading.body,
-                color: mkt.color.textSecondary,
-                margin: 0,
-              }}
-            >
-              Findings are grouped by severity, typed by pattern, and linked directly to the
-              assets involved. Each finding tells you what&apos;s wrong, why it matters, and which
-              assets need attention — without you having to chase it down.
-            </p>
-            <p
-              style={{
-                fontFamily: mkt.font.sans,
-                fontSize: mkt.type.body,
-                lineHeight: mkt.leading.body,
-                color: mkt.color.textSecondary,
-                margin: 0,
-              }}
-            >
-              You can resolve findings, defer them, or open a conversation thread directly from
-              the inbox. The graph updates as you act.
-            </p>
-          </div>
-
           <div
             style={{
               borderRadius: 12,
@@ -141,7 +101,54 @@ export default function SectionCoherence() {
               boxShadow: mkt.shadow.window,
             }}
           >
+            {/* Window chrome */}
+            <div
+              style={{
+                height: 40,
+                background: mkt.color.soft,
+                borderBottom: `1px solid ${mkt.color.hairline}`,
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+                padding: '0 14px',
+              }}
+            >
+              {['#F87171', '#FBBF24', '#4ADE80'].map((c) => (
+                <span key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c, flexShrink: 0 }} />
+              ))}
+              <span style={{ flex: 1, textAlign: 'center', fontFamily: mkt.font.mono, fontSize: 11, color: mkt.color.textMuted }}>
+                Coherence · 7 findings
+              </span>
+            </div>
             <InboxMock />
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <p
+              style={{
+                fontFamily: mkt.font.sans,
+                fontSize: mkt.type.body,
+                lineHeight: mkt.leading.body,
+                color: mkt.color.textSecondary,
+                margin: 0,
+              }}
+            >
+              Eighteen deterministic patterns watch the graph: ownership vacuums, silent
+              constraints, dependency shadows, capital concentration. They run in milliseconds,
+              against structured data — no LLM, no slop, no false positives that don&apos;t replicate.
+            </p>
+            <p
+              style={{
+                fontFamily: mkt.font.sans,
+                fontSize: mkt.type.body,
+                lineHeight: mkt.leading.body,
+                color: mkt.color.textSecondary,
+                margin: 0,
+              }}
+            >
+              Every finding cites the two assets in tension, why they conflict, and the smallest
+              change that would resolve it. The AI layer reads these findings; it doesn&apos;t invent them.
+            </p>
           </div>
         </motion.div>
 
@@ -195,38 +202,58 @@ export default function SectionCoherence() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
           style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
         >
-          <div style={{ textAlign: 'center' }}>
-            <h3
-              style={{
-                fontFamily: mkt.font.sans,
-                fontSize: mkt.type.h3,
-                fontWeight: 700,
-                letterSpacing: mkt.tracking.h3,
-                color: mkt.color.textPrimary,
-                margin: '0 0 8px',
-              }}
-            >
-              Signals have a lifecycle
-            </h3>
-            <p
-              style={{
-                fontFamily: mkt.font.sans,
-                fontSize: 14,
-                color: mkt.color.textMuted,
-                margin: 0,
-              }}
-            >
-              From detection to resolution — every signal is tracked, not just noted.
-            </p>
-          </div>
           <div
             style={{
-              borderRadius: 12,
-              border: `1px solid ${mkt.color.borderCard}`,
-              overflow: 'hidden',
-              boxShadow: mkt.shadow.window,
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1.05fr) minmax(0, 1.4fr)',
+              gap: 48,
+              alignItems: 'start',
             }}
           >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <p
+                style={{
+                  fontFamily: mkt.font.sans,
+                  fontSize: mkt.type.eyebrow,
+                  fontWeight: 600,
+                  letterSpacing: mkt.tracking.eyebrow,
+                  textTransform: 'uppercase',
+                  color: mkt.color.textMuted,
+                  margin: 0,
+                }}
+              >
+                Signal lifecycle
+              </p>
+              <h3
+                style={{
+                  fontFamily: mkt.font.sans,
+                  fontSize: 28,
+                  lineHeight: '34px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 500,
+                  color: mkt.color.textPrimary,
+                  margin: 0,
+                }}
+              >
+                Findings have a life.{' '}
+                <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
+                  Resolved closes the loop.
+                </span>
+              </h3>
+              <p
+                style={{
+                  fontFamily: mkt.font.sans,
+                  fontSize: 15,
+                  lineHeight: '24px',
+                  color: mkt.color.textSecondary,
+                  margin: 0,
+                }}
+              >
+                Every signal moves through three states. The team can add context, challenge the
+                finding with evidence, or commit to an action. Nothing rots in a backlog — either
+                it changes the strategy, or it gets explicitly closed with a reason.
+              </p>
+            </div>
             <SignalLifecycle />
           </div>
         </motion.div>

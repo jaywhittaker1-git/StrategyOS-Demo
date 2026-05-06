@@ -26,7 +26,7 @@ const STEPS: StepConfig[] = [
   {
     state: 'acknowledged',
     label: 'acknowledged',
-    meta: 'owner assigned · in review',
+    meta: 'context, challenge, or action item recorded',
     dotColor: mkt.color.accent,
     bg: '#EFF6FF',
     border: '#BFDBFE',
@@ -35,7 +35,7 @@ const STEPS: StepConfig[] = [
   {
     state: 'resolved',
     label: 'resolved',
-    meta: 'action taken · closed',
+    meta: 'closed by an action or a decision',
     dotColor: mkt.color.successFg,
     bg: '#F0FDF4',
     border: '#BBF7D0',

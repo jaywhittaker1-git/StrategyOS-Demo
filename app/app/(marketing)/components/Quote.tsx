@@ -5,10 +5,10 @@ import { useRef } from 'react'
 import { mkt } from '../tokens'
 
 const STATS = [
-  { value: '18', label: 'Strategy asset types' },
-  { value: '27', label: 'MCP tools exported' },
-  { value: '9×', label: 'GCE coherence patterns' },
-  { value: '<2s', label: 'Signal detection latency' },
+  { value: '60min → 10min', label: 'Monday strategic review' },
+  { value: '3.4×', label: 'More decisions logged with evidence' },
+  { value: '0', label: 'Slide decks of record' },
+  { value: '120%', label: 'Avg NRR across pilot customers' },
 ]
 
 export default function Quote() {
@@ -18,7 +18,7 @@ export default function Quote() {
   return (
     <section
       style={{
-        background: mkt.color.soft,
+        background: mkt.color.white,
         borderTop: `1px solid ${mkt.color.hairline}`,
         borderBottom: `1px solid ${mkt.color.hairline}`,
         padding: '80px 32px',
@@ -26,122 +26,151 @@ export default function Quote() {
     >
       <div
         ref={ref}
-        style={{
-          maxWidth: mkt.layout.siteMax,
-          margin: '0 auto',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: 64,
-        }}
+        style={{ maxWidth: mkt.layout.siteMax, margin: '0 auto' }}
       >
-        {/* Quote */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: 'easeOut' }}
           style={{
-            maxWidth: 680,
-            textAlign: 'center',
+            display: 'grid',
+            gridTemplateColumns: '1.1fr 1fr',
+            gap: 48,
+            alignItems: 'center',
           }}
         >
-          <p
-            style={{
-              fontFamily: mkt.font.serif,
-              fontSize: 'clamp(22px, 2.2vw, 30px)',
-              fontStyle: 'italic',
-              lineHeight: 1.45,
-              color: mkt.color.textPrimary,
-              margin: '0 0 24px',
-            }}
-          >
-            "For the first time, I can see our whole strategy in one place — not a
-            deck, not a wiki, but a living graph that tells me when something stops
-            making sense."
-          </p>
+          {/* Quote card */}
           <div
             style={{
+              border: `1px solid ${mkt.color.hairline}`,
+              borderRadius: 12,
+              padding: '32px 36px',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
-              gap: 4,
+              gap: 24,
             }}
           >
-            <span
+            <p
               style={{
-                fontFamily: mkt.font.sans,
-                fontSize: 13,
-                fontWeight: 600,
+                fontFamily: mkt.font.serif,
+                fontSize: 'clamp(18px, 1.8vw, 24px)',
+                fontStyle: 'italic',
+                lineHeight: 1.5,
                 color: mkt.color.textPrimary,
+                margin: 0,
               }}
             >
-              Sarah Chen
-            </span>
-            <span
+              &ldquo;Our Monday review went from a 60-minute slide-walk to a 10-minute look at
+              the Coherence inbox. The conversation we actually need to have is what&apos;s left.&rdquo;
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: 99,
+                  background: '#FDF2F8',
+                  color: '#DB2777',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: 600,
+                  fontSize: 13,
+                  flexShrink: 0,
+                }}
+              >
+                NK
+              </span>
+              <div>
+                <div style={{ fontFamily: mkt.font.sans, fontWeight: 600, fontSize: 13, color: mkt.color.textPrimary }}>
+                  Nadia Kaur
+                </div>
+                <div style={{ fontFamily: mkt.font.sans, fontSize: 12, color: mkt.color.textMuted }}>
+                  Chief of Staff · Northwind
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats side */}
+          <div>
+            <p
               style={{
                 fontFamily: mkt.font.sans,
-                fontSize: 12,
+                fontSize: mkt.type.eyebrow,
+                fontWeight: 600,
+                letterSpacing: mkt.tracking.eyebrow,
+                textTransform: 'uppercase',
                 color: mkt.color.textMuted,
+                margin: '0 0 12px',
               }}
             >
-              Chief Strategy Officer, Parallax Systems
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 1,
-            background: mkt.color.hairline,
-            border: `1px solid ${mkt.color.hairline}`,
-            borderRadius: 12,
-            overflow: 'hidden',
-            width: '100%',
-            maxWidth: 680,
-          }}
-        >
-          {STATS.map((s) => (
-            <div
-              key={s.label}
+              Skim test
+            </p>
+            <h2
               style={{
-                background: mkt.color.white,
-                padding: '24px 20px',
-                textAlign: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 6,
+                fontFamily: mkt.font.sans,
+                fontSize: 32,
+                lineHeight: 1.1,
+                letterSpacing: mkt.tracking.h2,
+                fontWeight: 700,
+                color: mkt.color.textPrimary,
+                margin: '0 0 16px',
               }}
             >
-              <span
-                style={{
-                  fontFamily: mkt.font.mono,
-                  fontSize: 28,
-                  fontWeight: 600,
-                  color: mkt.color.accent,
-                  letterSpacing: '-0.02em',
-                  lineHeight: 1,
-                }}
-              >
-                {s.value}
+              Walk into Monday knowing{' '}
+              <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
+                what changed.
               </span>
-              <span
-                style={{
-                  fontFamily: mkt.font.sans,
-                  fontSize: 11,
-                  color: mkt.color.textMuted,
-                  lineHeight: 1.4,
-                }}
-              >
-                {s.label}
-              </span>
+            </h2>
+            <p
+              style={{
+                fontFamily: mkt.font.sans,
+                fontSize: 15,
+                lineHeight: '24px',
+                color: mkt.color.textSecondary,
+                margin: '0 0 24px',
+                maxWidth: '44ch',
+              }}
+            >
+              Strategy doesn&apos;t fail in slide decks. It fails in the gap between Tuesday&apos;s signal
+              and Friday&apos;s decision. StrategyOS closes that gap.
+            </p>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: 24,
+                maxWidth: 440,
+              }}
+            >
+              {STATS.map((s) => (
+                <div key={s.label}>
+                  <div
+                    style={{
+                      fontFamily: mkt.font.sans,
+                      fontSize: 22,
+                      fontWeight: 600,
+                      letterSpacing: '-0.02em',
+                      color: mkt.color.textPrimary,
+                    }}
+                  >
+                    {s.value}
+                  </div>
+                  <div
+                    style={{
+                      fontFamily: mkt.font.sans,
+                      fontSize: 12,
+                      color: mkt.color.textMuted,
+                      marginTop: 4,
+                    }}
+                  >
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </motion.div>
       </div>
     </section>

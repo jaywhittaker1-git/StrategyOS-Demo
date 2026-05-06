@@ -46,7 +46,7 @@ export default function SectionPipeline() {
               margin: '0 0 16px',
             }}
           >
-            Intelligence pipeline
+            Under the hood
           </p>
           <h2
             style={{
@@ -77,9 +77,9 @@ export default function SectionPipeline() {
               maxWidth: 560,
             }}
           >
-            Every committed asset triggers a structured four-phase process: signal detection,
-            insight synthesis, cross-layer evaluation, and briefing assembly. The result is a
-            tiered intelligence feed — not a chat response.
+            When you lock an asset, four phases run in sequence — each one reading the structured
+            output of the last. Cheap models for high-frequency detection. A larger model only at
+            the end, where synthesis actually earns its cost.
           </p>
         </motion.div>
 

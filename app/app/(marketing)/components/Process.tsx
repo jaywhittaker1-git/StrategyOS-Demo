@@ -7,24 +7,24 @@ import { OrientMock } from './mocks/OrientMock'
 
 const STEPS = [
   {
-    num: '01',
-    title: 'Orient',
-    body: 'Build your premise constellation. Capture your core belief, the evidence that supports it, and the signals that would challenge it. This is the foundation the graph reasons from.',
+    num: '01 / Orient',
+    title: 'Where are we?',
+    body: 'Pull the current state of the world — signals, market shifts, customer evidence — into a shared frame. No one re-reads the deck.',
   },
   {
-    num: '02',
-    title: 'Gather',
-    body: 'Connect your intelligence sources. StrategyOS ingests documents, transcripts, market data, and signals — and maps them to the relevant nodes in your graph automatically.',
+    num: '02 / Gather',
+    title: 'What do we know?',
+    body: 'Collect evidence for and against each premise. Models, quotes, churn data, competitive moves — typed and linked.',
   },
   {
-    num: '03',
-    title: 'Confirm',
-    body: 'The coherence engine evaluates every asset. Gaps and contradictions surface as findings. The AI synthesises the picture into a tiered briefing: urgent, cross-layer, or noted.',
+    num: '03 / Confirm',
+    title: 'What do we believe?',
+    body: 'Convert evidence into a small set of confirmed premises. Disagreement is an asset, not a meeting.',
   },
   {
-    num: '04',
-    title: 'Lock',
-    body: 'Commit your decisions. Lock-time intelligence runs at the moment of commitment — capturing the full strategic context so every decision is auditable and traceable.',
+    num: '04 / Lock',
+    title: 'What changes?',
+    body: 'Decisions, bets and OKRs get committed and timestamped. The graph carries forward; the team moves.',
   },
 ]
 
@@ -69,7 +69,7 @@ export default function Process() {
               margin: '0 0 16px',
             }}
           >
-            The process
+            The loop
           </p>
           <h2
             style={{
@@ -79,14 +79,29 @@ export default function Process() {
               letterSpacing: mkt.tracking.h2,
               lineHeight: mkt.leading.h2,
               color: mkt.color.textOnDark,
-              margin: 0,
+              margin: '0 0 20px',
             }}
           >
             Orient.{' '}
             <span style={{ color: mkt.color.textOnDarkSecondary }}>Gather.</span>{' '}
             <span style={{ color: mkt.color.textOnDarkSecondary }}>Confirm.</span>{' '}
-            <span style={{ color: mkt.color.textOnDarkSecondary }}>Lock.</span>
+            <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400, color: mkt.color.textOnDark }}>Lock.</span>
           </h2>
+          <p
+            style={{
+              fontFamily: mkt.font.sans,
+              fontSize: mkt.type.bodyLg,
+              lineHeight: mkt.leading.body,
+              color: mkt.color.textOnDarkSecondary,
+              margin: 0,
+              maxWidth: 560,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            Strategy work has a shape. StrategyOS turns it into a four-step loop the team
+            actually finishes — instead of a 47-page doc nobody reads.
+          </p>
         </motion.div>
 
         {/* 4 step grid */}
@@ -138,6 +153,7 @@ export default function Process() {
               >
                 {s.title}
               </h3>
+
               <p
                 style={{
                   fontFamily: mkt.font.sans,

@@ -75,71 +75,46 @@ export default function SectionConversation() {
                 margin: 0,
               }}
             >
-              Ask questions in plain language. Explore trade-offs. Run what-if scenarios.
-              The assistant answers from your strategy graph — not from a generic knowledge base.
+              Ask anything — across decisions, plans, signals and people. Every answer cites the
+              underlying assets and offers concrete next moves: re-run a model, loop a stakeholder,
+              open a decision.
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {[
-              'Which bets are most exposed if Q3 revenue misses?',
-              'Does our OKR cascade support the Germany decision?',
-              'What signals are contradicting our operating plan?',
-            ].map((q) => (
-              <div
-                key={q}
-                style={{
-                  display: 'flex',
-                  alignItems: 'flex-start',
-                  gap: 10,
-                  padding: '10px 14px',
-                  background: mkt.color.soft,
-                  border: `1px solid ${mkt.color.hairline}`,
-                  borderRadius: 8,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: mkt.font.mono,
-                    fontSize: 11,
-                    color: mkt.color.accent,
-                    fontWeight: 600,
-                    flexShrink: 0,
-                    marginTop: 1,
-                  }}
-                >
-                  Q
-                </span>
-                <span
-                  style={{
-                    fontFamily: mkt.font.sans,
-                    fontSize: 13,
-                    color: mkt.color.textSecondary,
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {q}
-                </span>
-              </div>
-            ))}
-          </div>
+          <p
+            style={{
+              fontFamily: mkt.font.sans,
+              fontSize: mkt.type.body,
+              lineHeight: mkt.leading.body,
+              color: mkt.color.textSecondary,
+              margin: 0,
+            }}
+          >
+            <span style={{ color: mkt.color.textMuted }}>@-mention</span> any asset to ground the
+            conversation. Replies become drafts you can promote — into a task, a decision memo, or
+            an experiment.
+          </p>
 
-          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-            {['MCP-powered', 'Context-grounded answers', 'Cites source assets'].map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontFamily: mkt.font.sans,
-                  fontSize: 12,
-                  fontWeight: 500,
-                  color: mkt.color.textMuted,
-                  background: mkt.color.accentLight,
-                  borderRadius: 99,
-                  padding: '4px 10px',
-                }}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {[
+              'Citations on every answer — no hallucinated strategy.',
+              'Suggestions are typed: a Decision draft is a real Decision asset.',
+              'Audit trail of who asked what, and what got changed.',
+            ].map((item) => (
+              <div
+                key={item}
+                style={{ display: 'flex', gap: 10, fontSize: 14, color: mkt.color.textSecondary }}
               >
-                {tag}
-              </span>
+                <svg
+                  width="14" height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  style={{ flexShrink: 0, marginTop: 3, color: mkt.color.successFg }}
+                >
+                  <path d="M2.5 7L5.5 10L11.5 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                {item}
+              </div>
             ))}
           </div>
         </motion.div>
@@ -183,7 +158,7 @@ export default function SectionConversation() {
                 color: mkt.color.textMuted,
               }}
             >
-              strategy conversation
+              Strategy chat · FY26 Plan
             </span>
           </div>
           <ChatMock />

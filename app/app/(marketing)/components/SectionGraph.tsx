@@ -48,7 +48,7 @@ export default function SectionGraph() {
               margin: '0 0 16px',
             }}
           >
-            The graph model
+            The model
           </p>
           <h2
             style={{
@@ -63,7 +63,7 @@ export default function SectionGraph() {
           >
             Strategy is a graph,{' '}
             <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-              not a document
+              not a document.
             </span>
           </h2>
           <p
@@ -75,9 +75,9 @@ export default function SectionGraph() {
               margin: 0,
             }}
           >
-            Every bet, decision, OKR, signal, and stakeholder is a typed node.
-            Every relationship is an edge. The graph knows when your OKR no longer supports your bet,
-            or when a signal contradicts your operating plan.
+            Eighteen typed assets. Seventy-plus relationship types. A decision rests on premises;
+            an OKR descends from a bet; a signal contradicts a forecast. StrategyOS makes those
+            relationships first-class — so when the world changes, the right thing changes with it.
           </p>
         </motion.div>
 
@@ -122,7 +122,7 @@ export default function SectionGraph() {
                 letterSpacing: '0.02em',
               }}
             >
-              strategy graph · Aurelius Global
+              FY26 Plan · graph view
             </span>
           </div>
 

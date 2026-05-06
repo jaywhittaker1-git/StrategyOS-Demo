@@ -7,34 +7,36 @@ const COLS = [
   {
     heading: 'Product',
     links: [
-      { label: 'How it works', href: '/#how-it-works' },
-      { label: 'Asset types', href: '/#assets' },
-      { label: 'Intelligence', href: '/#intelligence' },
-      { label: 'MCP integration', href: '/#mcp' },
-    ],
-  },
-  {
-    heading: 'Learn',
-    links: [
-      { label: 'Learn more', href: '/learn-more' },
-      { label: 'The manifesto', href: '#' },
-      { label: 'Whitepaper', href: '#' },
-      { label: 'Changelog', href: '#' },
+      { label: 'Graph', href: '/#how-it-works' },
+      { label: 'Coherence inbox', href: '/#coherence' },
+      { label: 'Conversational', href: '/#intelligence' },
+      { label: 'Asset library', href: '/#assets' },
+      { label: 'Integrations', href: '/#mcp' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'About', href: '#' },
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jaywhittaker1/' },
-      { label: 'Contact', href: 'mailto:jaywhittaker1@gmail.com' },
+      { label: 'Manifesto', href: '/learn-more' },
+      { label: 'Customers', href: '#' },
+      { label: 'Careers', href: '#' },
+      { label: 'Press', href: '#' },
+    ],
+  },
+  {
+    heading: 'Resources',
+    links: [
+      { label: 'Field guide', href: '#' },
+      { label: 'Templates', href: '#' },
+      { label: 'Changelog', href: '#' },
+      { label: 'Security', href: '#' },
     ],
   },
   {
     heading: 'Access',
     links: [
       { label: 'Book a demo', href: 'mailto:jaywhittaker1@gmail.com' },
-      { label: 'Early access', href: 'mailto:jaywhittaker1@gmail.com' },
+      { label: 'Contact', href: 'mailto:jaywhittaker1@gmail.com' },
       { label: 'Open app →', href: '/workspace/a0000000-0000-4000-8000-000000000001' },
     ],
   },
@@ -82,8 +84,8 @@ export default function Footer() {
                 maxWidth: 280,
               }}
             >
-              An AI-powered strategy operating system for teams who need to see,
-              test, and align their strategy continuously.
+              The operating system for strategy. Your plans, decisions and signals, held
+              together by a graph.
             </p>
             <span
               style={{
@@ -164,18 +166,24 @@ export default function Footer() {
               opacity: 0.5,
             }}
           >
-            © 2026 StrategyOS. All rights reserved.
+            © 2026 StrategyOS, Inc.
           </span>
-          <span
-            style={{
-              fontFamily: mkt.font.mono,
-              fontSize: 11,
-              color: mkt.color.textOnDarkSecondary,
-              opacity: 0.4,
-              letterSpacing: '0.04em',
-            }}
-          >
-            v0.9 · preview
+          <span style={{ display: 'inline-flex', gap: 16 }}>
+            {['Privacy', 'Terms', 'Status'].map((l) => (
+              <a
+                key={l}
+                href="#"
+                style={{
+                  fontFamily: mkt.font.sans,
+                  fontSize: 12,
+                  color: mkt.color.textOnDarkSecondary,
+                  opacity: 0.4,
+                  textDecoration: 'none',
+                }}
+              >
+                {l}
+              </a>
+            ))}
           </span>
         </div>
       </div>

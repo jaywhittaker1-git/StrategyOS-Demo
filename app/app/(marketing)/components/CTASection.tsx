@@ -66,8 +66,8 @@ export default function CTASection() {
               maxWidth: 540,
             }}
           >
-            StrategyOS is in early access. We&apos;re working with teams who need to see,
-            test, and align their strategy continuously — not quarterly.
+            StrategyOS is in private preview with mid-market and enterprise teams. Book a demo
+            to see your own plan as a graph.
           </p>
 
           <div

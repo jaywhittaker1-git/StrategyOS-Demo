@@ -67,7 +67,7 @@ export function ChatMock() {
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: 3, verticalAlign: 'middle' }}>
                   <ObjIcon type="signal" size={13} />
                 </span>
-                {' '}mid-market churn signal conflicts with the assumption that Tier 2 expansion holds at 112%.
+                {' '}mid-market churn signal conflicts with the assumption that price elasticity is flat above $50k ACV.
               </li>
               <li>
                 No owner on the customer comms{' '}

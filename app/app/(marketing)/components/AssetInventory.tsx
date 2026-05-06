@@ -47,7 +47,7 @@ export default function AssetInventory() {
               margin: '0 0 16px',
             }}
           >
-            Asset inventory
+            Asset library
           </p>
           <h2
             style={{
@@ -74,8 +74,9 @@ export default function AssetInventory() {
               margin: 0,
             }}
           >
-            Every strategy asset has a defined type, structured fields, and a set of known
-            relationships. Click any node to see what it is, how it connects, and where it can go wrong.
+            Strategy isn&apos;t free-form text. Every artifact has a shape — fields you&apos;d actually fill
+            out, relationships it can have, ways it can be wrong. Hover to trace a dependency.
+            Click to inspect the type.
           </p>
         </motion.div>
 

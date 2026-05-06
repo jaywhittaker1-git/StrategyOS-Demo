@@ -48,7 +48,7 @@ export default function SectionMCP() {
               margin: '0 0 16px',
             }}
           >
-            MCP integration
+            Open by design
           </p>
           <h2
             style={{
@@ -75,9 +75,9 @@ export default function SectionMCP() {
               margin: 0,
             }}
           >
-            StrategyOS exposes 27 MCP tools so any compatible AI agent — Claude, Cursor,
-            your own scripts — can read, traverse, and write to your strategy graph programmatically.
-            No API keys required. Just connect and query.
+            Twenty-seven typed tools, served over MCP. Claude, Cursor, your own agents — anything
+            that speaks the protocol can read your assets, run a coherence check, or capture a
+            signal. Writes are dry-run by default; provenance is recorded on every commit.
           </p>
         </motion.div>
 
@@ -103,28 +103,58 @@ export default function SectionMCP() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.18 }}
           style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
         >
-          <div style={{ textAlign: 'center' }}>
-            <h3
-              style={{
-                fontFamily: mkt.font.sans,
-                fontSize: mkt.type.h3,
-                fontWeight: 700,
-                letterSpacing: mkt.tracking.h3,
-                color: mkt.color.textPrimary,
-                margin: '0 0 8px',
-              }}
-            >
-              Integrations
-            </h3>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'flex-end',
+              flexWrap: 'wrap',
+              gap: 16,
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  fontFamily: mkt.font.sans,
+                  fontSize: mkt.type.eyebrow,
+                  fontWeight: 600,
+                  letterSpacing: mkt.tracking.eyebrow,
+                  textTransform: 'uppercase',
+                  color: mkt.color.textMuted,
+                  margin: '0 0 12px',
+                }}
+              >
+                Integrations
+              </p>
+              <h3
+                style={{
+                  fontFamily: mkt.font.sans,
+                  fontSize: 28,
+                  lineHeight: '34px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: 500,
+                  color: mkt.color.textPrimary,
+                  margin: 0,
+                }}
+              >
+                Strategy stays alive when{' '}
+                <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
+                  the world flows in.
+                </span>
+              </h3>
+            </div>
             <p
               style={{
                 fontFamily: mkt.font.sans,
                 fontSize: 14,
                 color: mkt.color.textMuted,
                 margin: 0,
+                maxWidth: 380,
+                lineHeight: '22px',
               }}
             >
-              Connect your existing tools. More coming soon.
+              Every integration is entity-anchored. A single mention is noise; eight in thirty
+              days, against an asset you locked, is a signal worth surfacing.
             </p>
           </div>
           <div
