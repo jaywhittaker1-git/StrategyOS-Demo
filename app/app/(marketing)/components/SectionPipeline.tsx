@@ -13,7 +13,8 @@ export default function SectionPipeline() {
     <section
       id="intelligence"
       style={{
-        background: mkt.color.dark,
+        background: mkt.color.soft,
+        borderBottom: `1px solid ${mkt.color.hairline}`,
         padding: '96px 32px',
         overflow: 'hidden',
       }}
@@ -42,7 +43,7 @@ export default function SectionPipeline() {
               fontWeight: 600,
               letterSpacing: mkt.tracking.eyebrow,
               textTransform: 'uppercase',
-              color: mkt.color.accentActive,
+              color: mkt.color.textMuted,
               margin: '0 0 16px',
             }}
           >
@@ -52,10 +53,10 @@ export default function SectionPipeline() {
             style={{
               fontFamily: mkt.font.sans,
               fontSize: mkt.type.h2,
-              fontWeight: 700,
-              letterSpacing: mkt.tracking.h2,
+              fontWeight: 500,
+              letterSpacing: '-0.03em',
               lineHeight: mkt.leading.h2,
-              color: mkt.color.textOnDark,
+              color: mkt.color.textPrimary,
               margin: '0 0 20px',
               maxWidth: 640,
               marginLeft: 'auto',
@@ -70,11 +71,11 @@ export default function SectionPipeline() {
           <p
             style={{
               fontFamily: mkt.font.sans,
-              fontSize: mkt.type.bodyLg,
-              lineHeight: mkt.leading.body,
-              color: mkt.color.textOnDarkSecondary,
+              fontSize: 17,
+              lineHeight: '26px',
+              color: mkt.color.textSecondary,
               margin: '0 auto',
-              maxWidth: 560,
+              maxWidth: '56ch',
             }}
           >
             When you lock an asset, four phases run in sequence — each one reading the structured
@@ -90,8 +91,9 @@ export default function SectionPipeline() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.12 }}
           style={{
             borderRadius: 12,
-            border: `1px solid ${mkt.color.borderDark}`,
+            border: `1px solid ${mkt.color.hairline}`,
             overflow: 'hidden',
+            boxShadow: mkt.shadow.window,
           }}
         >
           <PipelineMock />
@@ -106,10 +108,10 @@ export default function SectionPipeline() {
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: 1,
-            background: mkt.color.borderDark,
+            background: mkt.color.hairline,
             borderRadius: 10,
             overflow: 'hidden',
-            border: `1px solid ${mkt.color.borderDark}`,
+            border: `1px solid ${mkt.color.hairline}`,
           }}
         >
           {[
@@ -120,7 +122,7 @@ export default function SectionPipeline() {
             <div
               key={s.label}
               style={{
-                background: mkt.color.darkCallout,
+                background: mkt.color.white,
                 padding: '20px 24px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -132,7 +134,7 @@ export default function SectionPipeline() {
                   fontFamily: mkt.font.sans,
                   fontSize: 11,
                   fontWeight: 600,
-                  color: mkt.color.textOnDarkSecondary,
+                  color: mkt.color.textMuted,
                   letterSpacing: '0.06em',
                   textTransform: 'uppercase',
                 }}
@@ -144,7 +146,7 @@ export default function SectionPipeline() {
                   fontFamily: mkt.font.mono,
                   fontSize: 14,
                   fontWeight: 600,
-                  color: mkt.color.textOnDark,
+                  color: mkt.color.textPrimary,
                 }}
               >
                 {s.value}

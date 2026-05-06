@@ -35,8 +35,8 @@ export default function Process() {
   return (
     <section
       style={{
-        background: mkt.color.dark,
-        borderTop: `1px solid ${mkt.color.borderDark}`,
+        background: mkt.color.white,
+        borderBottom: `1px solid ${mkt.color.hairline}`,
         padding: '96px 32px',
         overflow: 'hidden',
       }}
@@ -65,7 +65,7 @@ export default function Process() {
               fontWeight: 600,
               letterSpacing: mkt.tracking.eyebrow,
               textTransform: 'uppercase',
-              color: mkt.color.accentActive,
+              color: mkt.color.textMuted,
               margin: '0 0 16px',
             }}
           >
@@ -75,26 +75,26 @@ export default function Process() {
             style={{
               fontFamily: mkt.font.sans,
               fontSize: mkt.type.h2,
-              fontWeight: 700,
-              letterSpacing: mkt.tracking.h2,
+              fontWeight: 500,
+              letterSpacing: '-0.03em',
               lineHeight: mkt.leading.h2,
-              color: mkt.color.textOnDark,
+              color: mkt.color.textPrimary,
               margin: '0 0 20px',
             }}
           >
             Orient.{' '}
-            <span style={{ color: mkt.color.textOnDarkSecondary }}>Gather.</span>{' '}
-            <span style={{ color: mkt.color.textOnDarkSecondary }}>Confirm.</span>{' '}
-            <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400, color: mkt.color.textOnDark }}>Lock.</span>
+            <span style={{ color: mkt.color.textMuted }}>Gather.</span>{' '}
+            <span style={{ color: mkt.color.textMuted }}>Confirm.</span>{' '}
+            <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400, color: mkt.color.textPrimary }}>Lock.</span>
           </h2>
           <p
             style={{
               fontFamily: mkt.font.sans,
-              fontSize: mkt.type.bodyLg,
-              lineHeight: mkt.leading.body,
-              color: mkt.color.textOnDarkSecondary,
+              fontSize: 17,
+              lineHeight: '26px',
+              color: mkt.color.textSecondary,
               margin: 0,
-              maxWidth: 560,
+              maxWidth: '56ch',
               marginLeft: 'auto',
               marginRight: 'auto',
             }}
@@ -110,10 +110,10 @@ export default function Process() {
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: 1,
-            background: mkt.color.borderDark,
+            background: mkt.color.hairline,
             borderRadius: 12,
             overflow: 'hidden',
-            border: `1px solid ${mkt.color.borderDark}`,
+            border: `1px solid ${mkt.color.hairline}`,
           }}
         >
           {STEPS.map((s, i) => (
@@ -123,7 +123,7 @@ export default function Process() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, ease: 'easeOut', delay: 0.1 + i * mkt.motion.stagger }}
               style={{
-                background: mkt.color.darkCallout,
+                background: mkt.color.soft,
                 padding: '28px 24px',
                 display: 'flex',
                 flexDirection: 'column',
@@ -135,7 +135,7 @@ export default function Process() {
                   fontFamily: mkt.font.mono,
                   fontSize: 11,
                   fontWeight: 600,
-                  color: mkt.color.accentActive,
+                  color: mkt.color.accent,
                   letterSpacing: '0.06em',
                 }}
               >
@@ -145,9 +145,9 @@ export default function Process() {
                 style={{
                   fontFamily: mkt.font.sans,
                   fontSize: 18,
-                  fontWeight: 700,
+                  fontWeight: 600,
                   letterSpacing: '-0.01em',
-                  color: mkt.color.textOnDark,
+                  color: mkt.color.textPrimary,
                   margin: 0,
                 }}
               >
@@ -159,7 +159,7 @@ export default function Process() {
                   fontFamily: mkt.font.sans,
                   fontSize: 13,
                   lineHeight: 1.65,
-                  color: mkt.color.textOnDarkSecondary,
+                  color: mkt.color.textSecondary,
                   margin: 0,
                 }}
               >
@@ -176,8 +176,9 @@ export default function Process() {
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
           style={{
             borderRadius: 12,
-            border: `1px solid ${mkt.color.borderDark}`,
+            border: `1px solid ${mkt.color.hairline}`,
             overflow: 'hidden',
+            boxShadow: mkt.shadow.window,
           }}
         >
           <OrientMock />

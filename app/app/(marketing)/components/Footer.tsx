@@ -46,8 +46,8 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: mkt.color.dark,
-        borderTop: `1px solid ${mkt.color.borderDark}`,
+        background: mkt.color.white,
+        borderTop: `1px solid ${mkt.color.hairline}`,
         padding: '64px 32px 32px',
       }}
     >
@@ -68,7 +68,7 @@ export default function Footer() {
                 fontFamily: mkt.font.sans,
                 fontSize: 15,
                 fontWeight: 700,
-                color: mkt.color.textOnDark,
+                color: mkt.color.textPrimary,
                 letterSpacing: '-0.01em',
               }}
             >
@@ -79,7 +79,7 @@ export default function Footer() {
                 fontFamily: mkt.font.sans,
                 fontSize: 13,
                 lineHeight: 1.7,
-                color: mkt.color.textOnDarkSecondary,
+                color: mkt.color.textSecondary,
                 margin: 0,
                 maxWidth: 280,
               }}
@@ -94,8 +94,7 @@ export default function Footer() {
                 gap: 6,
                 fontFamily: mkt.font.sans,
                 fontSize: 11,
-                color: mkt.color.textOnDarkSecondary,
-                opacity: 0.6,
+                color: mkt.color.textMuted,
               }}
             >
               <span
@@ -119,7 +118,7 @@ export default function Footer() {
                   fontFamily: mkt.font.sans,
                   fontSize: mkt.type.eyebrow,
                   fontWeight: 600,
-                  color: mkt.color.textOnDark,
+                  color: mkt.color.textPrimary,
                   letterSpacing: mkt.tracking.eyebrow,
                   textTransform: 'uppercase',
                   opacity: 0.5,
@@ -134,12 +133,12 @@ export default function Footer() {
                   style={{
                     fontFamily: mkt.font.sans,
                     fontSize: 13,
-                    color: mkt.color.textOnDarkSecondary,
+                    color: mkt.color.textSecondary,
                     textDecoration: 'none',
                     transition: 'color 0.15s',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = mkt.color.textOnDark)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = mkt.color.textOnDarkSecondary)}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = mkt.color.textPrimary)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = mkt.color.textSecondary)}
                 >
                   {l.label}
                 </Link>
@@ -151,7 +150,7 @@ export default function Footer() {
         {/* Meta row */}
         <div
           style={{
-            borderTop: `1px solid ${mkt.color.borderDark}`,
+            borderTop: `1px solid ${mkt.color.hairline}`,
             paddingTop: 24,
             display: 'flex',
             alignItems: 'center',
@@ -162,8 +161,7 @@ export default function Footer() {
             style={{
               fontFamily: mkt.font.sans,
               fontSize: 12,
-              color: mkt.color.textOnDarkSecondary,
-              opacity: 0.5,
+              color: mkt.color.textMuted,
             }}
           >
             © 2026 StrategyOS, Inc.
@@ -176,8 +174,8 @@ export default function Footer() {
                 style={{
                   fontFamily: mkt.font.sans,
                   fontSize: 12,
-                  color: mkt.color.textOnDarkSecondary,
-                  opacity: 0.4,
+                  color: mkt.color.textMuted,
+                  opacity: 0.6,
                   textDecoration: 'none',
                 }}
               >

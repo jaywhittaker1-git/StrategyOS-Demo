@@ -32,6 +32,7 @@ const NODES: Record<string, NodePos> = {
   signal:      { x: 320, y: 580, label: 'Signal' },
   experiment:  { x: 540, y: 580, label: 'Experiment' },
   task:        { x: 760, y: 580, label: 'Task' },
+  valuechain:  { x: 990, y: 390, label: 'Value Chain' },
 }
 
 // ─── Edges ────────────────────────────────────────────────────────────────────
@@ -70,6 +71,9 @@ const EDGES: Edge[] = [
   ['stakeholder', 'decision'],
   ['narrative', 'okr'],
   ['task', 'experiment'],
+  ['valuechain', 'competitive'],
+  ['valuechain', 'capability'],
+  ['valuechain', 'bets'],
 ]
 
 // ─── Asset detail data ────────────────────────────────────────────────────────
@@ -209,27 +213,13 @@ const ASSET_DETAIL: Record<string, AssetDetail> = {
     links: ['capability'],
     wrong: 'Items growing in interest with no bet or initiative to retire them. Blast radius estimates are outdated. No link to a capability it\'s blocking.',
   },
-}
-
-const ASSET_ROLE: Record<string, string> = {
-  decision: 'Choice',
-  wardley: 'Map',
-  okr: 'Goal',
-  systems: 'Map',
-  stakeholder: 'Person',
-  problem: 'Question',
-  insight: 'Belief',
-  signal: 'Evidence',
-  experiment: 'Test',
-  task: 'Action',
-  narrative: 'Story',
-  financial: 'Model',
-  capability: 'Asset',
-  bets: 'Wager',
-  operating: 'Plan',
-  competitive: 'Brief',
-  enterprise: 'North star',
-  tdmap: 'Map',
+  valuechain: {
+    desc: 'Maps the sequence of primary and support activities that turn inputs into customer value — from sourcing and operations through to sales, service, and infrastructure.',
+    why: 'Reveals which activities are strategic differentiators and which are commodity. Focuses investment and bet selection on the steps that actually compound advantage.',
+    fields: ['primary_activities[]', 'support_activities[]', 'cost_structure', 'margin_target', 'differentiators[]'],
+    links: ['competitive', 'capability', 'bets'],
+    wrong: 'Primary activities listed without cost or margin data. No link to a bet or capability. Support activities haven\'t been reviewed against the last reorganisation.',
+  },
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -332,7 +322,6 @@ export function AssetGraph() {
   }
 
   const detail = ASSET_DETAIL[selected]
-  const role = ASSET_ROLE[selected] ?? ''
   const nodeName = NODES[selected]?.label ?? selected
 
   return (
@@ -486,17 +475,6 @@ export function AssetGraph() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <ObjIcon type={selected as ObjType} size={36} />
-                  <span
-                    style={{
-                      textTransform: 'uppercase',
-                      fontSize: 10,
-                      color: mkt.color.textSubtle,
-                      letterSpacing: '0.08em',
-                      fontWeight: 500,
-                    }}
-                  >
-                    {role}
-                  </span>
                 </div>
                 <span
                   style={{

@@ -11,8 +11,8 @@ export default function CTASection() {
   return (
     <section
       style={{
-        background: mkt.color.dark,
-        borderTop: `1px solid ${mkt.color.borderDark}`,
+        background: 'linear-gradient(180deg, #FFFFFF 0%, #F7F7F5 100%)',
+        borderBottom: `1px solid ${mkt.color.hairline}`,
         padding: '120px 32px 80px',
       }}
     >
@@ -31,7 +31,7 @@ export default function CTASection() {
               fontWeight: 600,
               letterSpacing: mkt.tracking.eyebrow,
               textTransform: 'uppercase',
-              color: mkt.color.accentActive,
+              color: mkt.color.textMuted,
               margin: '0 0 24px',
             }}
           >
@@ -42,10 +42,10 @@ export default function CTASection() {
             style={{
               fontFamily: mkt.font.sans,
               fontSize: 'clamp(36px, 4vw, 56px)',
-              fontWeight: 700,
-              letterSpacing: mkt.tracking.h2,
+              fontWeight: 500,
+              letterSpacing: '-0.03em',
               lineHeight: 1.06,
-              color: mkt.color.textOnDark,
+              color: mkt.color.textPrimary,
               margin: '0 auto 24px',
               maxWidth: 700,
             }}
@@ -59,11 +59,11 @@ export default function CTASection() {
           <p
             style={{
               fontFamily: mkt.font.sans,
-              fontSize: mkt.type.bodyLg,
-              lineHeight: mkt.leading.body,
-              color: mkt.color.textOnDarkSecondary,
+              fontSize: 17,
+              lineHeight: '26px',
+              color: mkt.color.textSecondary,
               margin: '0 auto 48px',
-              maxWidth: 540,
+              maxWidth: '56ch',
             }}
           >
             StrategyOS is in private preview with mid-market and enterprise teams. Book a demo
@@ -86,7 +86,7 @@ export default function CTASection() {
                 fontSize: 14,
                 fontWeight: 600,
                 color: mkt.color.white,
-                background: mkt.color.accent,
+                background: '#0B0B0F',
                 padding: '12px 28px',
                 borderRadius: 8,
                 textDecoration: 'none',
@@ -99,7 +99,7 @@ export default function CTASection() {
               style={{
                 fontFamily: mkt.font.sans,
                 fontSize: 14,
-                color: mkt.color.textOnDarkSecondary,
+                color: mkt.color.textSecondary,
                 textDecoration: 'none',
               }}
             >
@@ -112,7 +112,7 @@ export default function CTASection() {
               style={{
                 fontFamily: mkt.font.sans,
                 fontSize: 14,
-                color: mkt.color.textOnDarkSecondary,
+                color: mkt.color.textSecondary,
                 textDecoration: 'none',
               }}
             >
