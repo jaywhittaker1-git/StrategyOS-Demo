@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base surfaces — light-mode only */
+    --background: 0 0% 100%;          /* #FFFFFF — canvas */
+    --foreground: 220 9% 7%;          /* #111827 — near-black */
+
+    /* Card / popover — white, separated by border */
+    --card: 0 0% 100%;
+    --card-foreground: 220 9% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 9% 7%;
+
+    /* Surface — sidebar, secondary panels */
+    --surface: 0 0% 97.6%;            /* #F9F9F9 */
+    --surface-foreground: 220 9% 7%;
+
+    /* Primary accent — cobalt blue */
+    --primary: 224 71% 45%;           /* #2563EB */
+    --primary-foreground: 0 0% 100%;
+
+    /* Borders & inputs */
+    --border: 0 0% 89.8%;             /* #E5E5E5 */
+    --input: 0 0% 89.8%;
+    --ring: 224 71% 45%;              /* focus ring matches accent */
+
+    /* Muted / secondary */
+    --muted: 0 0% 97.6%;              /* #F9F9F9 */
+    --muted-foreground: 220 9% 43%;   /* #6B7280 */
+    --secondary: 0 0% 97.6%;
+    --secondary-foreground: 220 9% 22%;/* #374151 */
+
+    /* Radius */
+    --radius: 0.375rem;               /* 6px — buttons, inputs, filter chips */
+
+    /* StrategyOS design tokens — light mode */
+    --sos-canvas: #FFFFFF;
+    --sos-surface: #FFFFFF;
+    --sos-elevated: #FFFFFF;
+    --sos-border-subtle: #EBEBEB;
+    --sos-border-strong: #DADADA;
+    --sos-accent: #2563EB;
+    --sos-accent-tint: #DBEAFE;
+    --sos-accent-light: #EFF6FF;
+    --sos-text-primary: #111827;
+    --sos-text-secondary: #374151;
+    --sos-text-muted: #6B7280;
+    --sos-text-subtle: #9CA3AF;
+    --sos-radius-control: 6px;
+    --sos-radius-container: 10px;
+    --sos-success: #15803D;
+    --sos-success-bg: #DCFCE7;
+    --sos-warning: #B45309;
+    --sos-warning-bg: #FEF3C7;
+    --sos-danger: #B91C1C;
+    --sos-danger-bg: #FEE2E2;
+    --sos-neutral: #374151;
+    --sos-neutral-bg: #F3F4F6;
+
+    /* Object identity — 18 asset type badge colours */
+    --sos-obj-decision-bg: #EFF6FF;    --sos-obj-decision-fg: #2563EB;
+    --sos-obj-wardley-bg: #F5F3FF;     --sos-obj-wardley-fg: #7C3AED;
+    --sos-obj-okr-bg: #F0FDF4;         --sos-obj-okr-fg: #16A34A;
+    --sos-obj-systems-bg: #F0FDFA;     --sos-obj-systems-fg: #0D9488;
+    --sos-obj-stakeholder-bg: #EEF2FF; --sos-obj-stakeholder-fg: #4F46E5;
+    --sos-obj-problem-bg: #FEF2F2;     --sos-obj-problem-fg: #DC2626;
+    --sos-obj-insight-bg: #FFFBEB;     --sos-obj-insight-fg: #D97706;
+    --sos-obj-signal-bg: #FFF7ED;      --sos-obj-signal-fg: #EA580C;
+    --sos-obj-experiment-bg: #F7FEE7;  --sos-obj-experiment-fg: #65A30D;
+    --sos-obj-task-bg: #F9FAFB;        --sos-obj-task-fg: #6B7280;
+    --sos-obj-narrative-bg: #F8FAFC;   --sos-obj-narrative-fg: #475569;
+    --sos-obj-financial-bg: #ECFDF5;   --sos-obj-financial-fg: #059669;
+    --sos-obj-capability-bg: #FAF5FF;  --sos-obj-capability-fg: #9333EA;
+    --sos-obj-bets-bg: #FDF2F8;        --sos-obj-bets-fg: #BE185D;
+    --sos-obj-operating-bg: #F0F9FF;   --sos-obj-operating-fg: #0284C7;
+    --sos-obj-competitive-bg: #FFF1F2; --sos-obj-competitive-fg: #E11D48;
+    --sos-obj-enterprise-bg: #EFF6FF;  --sos-obj-enterprise-fg: #1D4ED8;
+    --sos-obj-tdmap-bg: #F8FAFC;       --sos-obj-tdmap-fg: #64748B;
+
+    /* Layer model (Z-axis depth) */
+    --layer-0-bg: #F9F9F9;
+    --layer-0-z: 0;
+    --layer-1-bg: #FFFFFF;
+    --layer-1-radius: 10px;
+    --layer-1-shadow: 0 1px 3px rgba(0,0,0,0.06), -2px 0 4px rgba(0,0,0,0.03);
+    --layer-1-z: 10;
+    --layer-2-bg: #FFFFFF;
+    --layer-2-radius: 10px;
+    --layer-2-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.08);
+    --layer-2-z: 20;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Intelligence panel — collapsed strip pulse animation */
+@keyframes intelligence-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+  60%  { box-shadow: 0 0 0 4px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+.intelligence-pulse {
+  animation: intelligence-pulse 2s ease-out forwards;
+}
