@@ -20,7 +20,6 @@ export const OBJ_TYPES = [
   { key: 'competitive', label: 'Competitive Brief',  glyph: '⊕' },
   { key: 'enterprise',  label: 'Enterprise Goal',    glyph: '▲' },
   { key: 'tdmap',       label: 'Tech Debt Map',      glyph: '⌗' },
-  { key: 'valuechain',  label: 'Value Chain',        glyph: '⊞' },
 ] as const
 
 export type ObjType = typeof OBJ_TYPES[number]['key']

@@ -112,8 +112,8 @@ export default function Quote() {
                 fontFamily: mkt.font.sans,
                 fontSize: 32,
                 lineHeight: 1.1,
-                letterSpacing: mkt.tracking.h2,
-                fontWeight: 700,
+                letterSpacing: '-0.03em',
+                fontWeight: 500,
                 color: mkt.color.textPrimary,
                 margin: '0 0 16px',
               }}

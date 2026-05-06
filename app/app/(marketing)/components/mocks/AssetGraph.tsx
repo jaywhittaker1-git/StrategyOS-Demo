@@ -13,26 +13,27 @@ interface NodePos {
   label: string
 }
 
+// Canvas: 850×640. Nodes centered at (x,y) via translate(-50%,-50%).
+// Vertical staggering within each tier gives visual breathing room without wide x-spacing.
 const NODES: Record<string, NodePos> = {
-  enterprise:  { x: 550, y: 60,  label: 'Enterprise Goal' },
-  okr:         { x: 350, y: 170, label: 'OKR' },
-  bets:        { x: 550, y: 170, label: 'Bet' },
-  decision:    { x: 750, y: 170, label: 'Decision' },
-  insight:     { x: 200, y: 290, label: 'Insight' },
-  problem:     { x: 360, y: 310, label: 'Problem' },
-  narrative:   { x: 540, y: 310, label: 'Narrative' },
-  operating:   { x: 720, y: 310, label: 'Operating Plan' },
-  competitive: { x: 880, y: 290, label: 'Competitive Brief' },
-  wardley:     { x: 80,  y: 410, label: 'Wardley Map' },
-  systems:     { x: 230, y: 460, label: 'Systems Map' },
-  financial:   { x: 380, y: 480, label: 'Financial Model' },
-  capability:  { x: 540, y: 480, label: 'Capability' },
-  tdmap:       { x: 700, y: 480, label: 'Tech Debt Map' },
-  stakeholder: { x: 860, y: 460, label: 'Stakeholder' },
-  signal:      { x: 320, y: 580, label: 'Signal' },
-  experiment:  { x: 540, y: 580, label: 'Experiment' },
-  task:        { x: 760, y: 580, label: 'Task' },
-  valuechain:  { x: 990, y: 390, label: 'Value Chain' },
+  enterprise:  { x: 425, y: 60,  label: 'Enterprise Goal' },
+  okr:         { x: 210, y: 185, label: 'OKR' },
+  bets:        { x: 425, y: 165, label: 'Bet' },
+  decision:    { x: 640, y: 185, label: 'Decision' },
+  insight:     { x: 85,  y: 285, label: 'Insight' },
+  problem:     { x: 235, y: 320, label: 'Problem' },
+  narrative:   { x: 388, y: 300, label: 'Narrative' },
+  operating:   { x: 550, y: 325, label: 'Operating Plan' },
+  competitive: { x: 715, y: 290, label: 'Competitive Brief' },
+  wardley:     { x: 65,  y: 415, label: 'Wardley Map' },
+  systems:     { x: 198, y: 460, label: 'Systems Map' },
+  financial:   { x: 340, y: 485, label: 'Financial Model' },
+  capability:  { x: 482, y: 462, label: 'Capability' },
+  tdmap:       { x: 628, y: 490, label: 'Tech Debt Map' },
+  stakeholder: { x: 758, y: 442, label: 'Stakeholder' },
+  signal:      { x: 228, y: 590, label: 'Signal' },
+  experiment:  { x: 425, y: 610, label: 'Experiment' },
+  task:        { x: 622, y: 590, label: 'Task' },
 }
 
 // ─── Edges ────────────────────────────────────────────────────────────────────
@@ -48,6 +49,7 @@ const EDGES: Edge[] = [
   ['bets', 'capability'],
   ['bets', 'wardley'],
   ['bets', 'financial'],
+  ['bets', 'systems'],
   ['decision', 'narrative'],
   ['decision', 'competitive'],
   ['decision', 'stakeholder'],
@@ -60,20 +62,17 @@ const EDGES: Edge[] = [
   ['signal', 'decision'],
   ['signal', 'okr'],
   ['signal', 'problem'],
-  ['competitive', 'decision'],
-  ['wardley', 'bets'],
+  ['wardley', 'capability'],
+  ['wardley', 'decision'],
   ['financial', 'okr'],
   ['capability', 'bets'],
   ['operating', 'task'],
   ['operating', 'okr'],
-  ['systems', 'bets'],
   ['tdmap', 'capability'],
   ['stakeholder', 'decision'],
   ['narrative', 'okr'],
   ['task', 'experiment'],
-  ['valuechain', 'competitive'],
-  ['valuechain', 'capability'],
-  ['valuechain', 'bets'],
+  ['competitive', 'decision'],
 ]
 
 // ─── Asset detail data ────────────────────────────────────────────────────────
@@ -92,133 +91,126 @@ const ASSET_DETAIL: Record<string, AssetDetail> = {
     why: 'Every downstream asset — OKRs, experiments, narratives — traces back to a decision. Without the premises visible, assumptions become invisible.',
     fields: ['status', 'owner', 'premises[]', 'alternatives[]', 'reversibility', 'deadline', 'rationale'],
     links: ['okr', 'experiment', 'narrative', 'stakeholder', 'financial'],
-    wrong: 'Approved without referenced evidence; no kill criteria defined; premises have drifted from current signals without the decision being revisited.',
+    wrong: 'Finding: Finance model moved to ±18% variance since approval — premises were never updated. Finding: No kill criteria set. Owner field is blank on a locked decision with 3 downstream OKRs.',
   },
   okr: {
     desc: 'An objective with measurable key results. Anchors team effort to strategic intent and provides the quantitative surface for signal contradiction.',
     why: 'OKRs are the primary translation layer between bets and measurable work. They make strategy falsifiable.',
     fields: ['objective', 'key_results[]', 'owner', 'horizon', 'confidence', 'parent_bet'],
     links: ['enterprise', 'experiment', 'task', 'financial', 'narrative'],
-    wrong: 'Two OKRs claim the same key result. A forecast contradicts an open churn signal. No experiment underway to confirm the key result is reachable.',
+    wrong: 'Signal: Mid-market churn contradicts the 118% NRR key result. Finding: Two OKRs claim net_revenue_retention as their primary metric. No experiment linked to validate the key result is reachable.',
   },
   enterprise: {
     desc: 'The non-negotiable goal everything else ladders up to. Sets the time horizon and the guardrails that make choices coherent.',
     why: 'Without a clear north star, goals proliferate and contradict each other. The enterprise goal is the single shared anchor.',
     fields: ['statement', 'horizon', 'guardrails[]', 'owner'],
     links: ['okr', 'bets', 'decision'],
-    wrong: 'All children are low-priority — vision drift. No OKRs reference it. Guardrails are absent, leaving constraints invisible.',
+    wrong: "Finding: Three active bets have no path back to this goal. Signal: Q3 board deck uses a different north star than what's locked here — misalignment is propagating.",
   },
   bets: {
     desc: 'A multi-quarter wager on a direction. Carries the thesis, the capital allocation, the milestones, and the criteria that would make the team stop.',
     why: 'Bets make risk visible and time-bounded. They force the question: what would it take to change our mind?',
     fields: ['thesis', 'horizon', 'investment', 'kill_criteria', 'milestones[]', 'confidence'],
     links: ['capability', 'wardley', 'financial', 'systems'],
-    wrong: 'Implies a capability that doesn\'t exist on the capability map. Kill criteria are absent or unmeasurable. Investment is not reflected in the financial model.',
+    wrong: 'Finding: This bet implies a data platform capability not on the capability map. Signal: Kill threshold (40% pilot conversion) was hit 3 weeks ago — no decision made. Investment contradicts the locked financial model.',
   },
   experiment: {
     desc: 'A test with a hypothesis, a success metric, and a deadline. Runs, fails, or earns an insight that updates the strategy.',
     why: 'Experiments close the loop between strategic intent and observed reality. They are how the system learns.',
     fields: ['hypothesis', 'metric', 'deadline', 'result', 'status', 'owner'],
     links: ['okr', 'decision', 'insight', 'task'],
-    wrong: 'No deadline. Metric is not measurable before the deadline. No successor insight created when the experiment concludes.',
+    wrong: 'Finding: Deadline passed 18 days ago — no result recorded, no successor insight created. Signal: The success metric (time-to-value < 5 min) has no measurement instrumentation in place.',
   },
   signal: {
     desc: 'A weak signal from the world — a data point, a customer quote, a market move — that may matter to a locked asset. Carries severity, type, and a lifecycle state.',
     why: 'Signals are how external reality enters the system. Without a typed inbox, important signals go unacknowledged and strategies become stale.',
     fields: ['title', 'severity', 'source', 'signal_type', 'confidence', 'state', 'linked_assets[]'],
     links: ['decision', 'okr', 'problem'],
-    wrong: 'Open beyond 30 days with no acknowledgement. No asset linked — floating noise with no strategic home.',
+    wrong: 'Finding: Open for 34 days with no acknowledgement. No asset linked — this signal has no strategic home. A similar signal from Q2 was dismissed without recording why.',
   },
   insight: {
-    desc: 'Something the team now believes, backed by the evidence that earned it. Represents the team\'s working model of how the world actually operates.',
+    desc: "Something the team now believes, backed by the evidence that earned it. Represents the team's working model of how the world actually operates.",
     why: 'Insights are the distilled output of experiments and signals. They justify decisions and make reasoning inspectable.',
     fields: ['claim', 'evidence[]', 'confidence', 'source_experiment'],
     links: ['decision', 'problem'],
-    wrong: 'No evidence cited. Contradicts a more recent signal without explanation. Confidence score hasn\'t been updated after new data.',
+    wrong: 'Finding: Claim references a Q1 experiment; three contradicting signals have arrived since with no update. No evidence linked — this is assertion, not insight.',
   },
   problem: {
-    desc: 'A well-formed question the team doesn\'t yet know the answer to. Stays open until evidence resolves it — or until the team decides it\'s no longer worth asking.',
+    desc: "A well-formed question the team doesn't yet know the answer to. Stays open until evidence resolves it — or until the team decides it's no longer worth asking.",
     why: 'Problems make open questions explicit and traceable. They prevent premature closure and create a forcing function for experiments.',
     fields: ['question', 'owner', 'state', 'linked_signals[]'],
     links: ['experiment', 'insight', 'signal'],
-    wrong: 'Open with no experiment underway. Disconnected from any signal or insight. Owner is absent.',
+    wrong: "Finding: Open for 11 weeks with no experiment underway. Signal: Two signals reference this problem but neither is acknowledged. No owner assigned since last quarter's reorg.",
   },
   capability: {
     desc: 'Something the team can do today. Maps to the bets that depend on it, and exposes the dependencies that need to be built or acquired.',
     why: 'Capabilities are the operational reality beneath strategic ambition. A bet without a capability map is wishful thinking.',
     fields: ['name', 'maturity', 'owner', 'depends_on[]', 'linked_bets[]'],
     links: ['bets', 'tdmap'],
-    wrong: 'A bet declares it required; the capability is missing or marked stale. Maturity level hasn\'t been updated in over a quarter.',
+    wrong: "Finding: The enterprise data platform bet depends on this capability but it's marked stale. Signal: Maturity was set at level 2 six months ago — three bets now assume level 3.",
   },
   financial: {
     desc: 'A model — assumptions, ranges, sensitivities — connected to the bets and OKRs it underwrites. Makes the economic logic of the strategy explicit.',
     why: 'Financial models ground strategy in resource reality. They surface the assumptions that need to be tested first.',
     fields: ['assumptions[]', 'ranges', 'sensitivities[]', 'version', 'linked_bets[]'],
     links: ['bets', 'okr', 'decision'],
-    wrong: 'Variance band exceeds ±15% with no explanation. Key assumptions not linked to source signals. Model is older than 60 days with active bets relying on it.',
+    wrong: 'Signal: Finance flagged variance band at ±18% — model not updated. Finding: Price elasticity assumption contradicts open churn signal. Model is 74 days old with two active bets relying on it.',
   },
   wardley: {
     desc: 'A map of strategic components by visibility and evolution stage. Shows the competitive terrain and where commoditisation is heading.',
     why: 'Wardley Maps make landscape movements visible before they arrive. They surface build-vs-buy decisions and evolution risks.',
     fields: ['components[]', 'evolution_stages', 'anchor', 'version'],
-    links: ['bets'],
-    wrong: 'Component placement contradicts a recent movement signal. No anchor defined. Map is stale while the market has moved.',
+    links: ['bets', 'capability', 'decision'],
+    wrong: 'Signal: A competitor commoditised the "custom integration" component — it should be in Products, not Genesis. Finding: No anchor defined. Map has not been reviewed since the market shifted in Q2.',
   },
   systems: {
     desc: 'A causal loop map showing how parts of the business reinforce or balance each other. Surfaces leverage points and unintended consequences.',
     why: 'Systems maps reveal the dynamics that linear plans miss. They prevent solutions that create new problems downstream.',
     fields: ['nodes[]', 'loops[]', 'stocks[]', 'leverage_points[]'],
     links: ['bets', 'operating'],
-    wrong: 'A reinforcing loop has no evidence. No leverage point identified. Causal arrows are directionally wrong relative to operational data.',
+    wrong: 'Finding: The sales velocity reinforcing loop has no evidence linking the causal arrow. Signal: An ops report contradicts the predicted compounding effect — loop direction may be wrong.',
   },
   competitive: {
-    desc: 'What a specific competitor is doing and why it matters to the strategy. Renews on a schedule so it doesn\'t become a snapshot that misleads.',
+    desc: "What a specific competitor is doing and why it matters to the strategy. Renews on a schedule so it doesn't become a snapshot that misleads.",
     why: 'Competitive intelligence makes external pressure visible inside the strategy system. It prevents assumptions about moats from going unchallenged.',
     fields: ['competitor', 'moves[]', 'implications', 'renewed_at', 'threat_level'],
     links: ['decision', 'bets'],
-    wrong: 'More than 60 days old with no renewal. No link to a decision it should be informing. Implications section is empty.',
+    wrong: "Finding: Last renewed 73 days ago; two major product announcements since. Signal: A sales loss to this competitor was logged — brief hasn't absorbed the implication. Threat level is unset.",
   },
   stakeholder: {
     desc: 'A person and what they care about. Surfaces alignment risks and makes the human landscape of a decision visible before it becomes a blocker.',
     why: 'High-stakes decisions fail on stakeholder misalignment as often as they fail on strategy. Making it explicit makes it manageable.',
     fields: ['name', 'role', 'interests[]', 'alignment', 'concerns[]'],
     links: ['decision', 'okr'],
-    wrong: 'A high-priority decision lacks a sign-off stakeholder. Alignment marked \'unknown\' on a locked decision.',
+    wrong: 'Finding: CFO is required for sign-off on this decision — alignment is marked "unknown". Signal: Two prior similar decisions were reversed at the CFO stage; pattern not surfaced in the brief.',
   },
   narrative: {
     desc: 'The story behind the strategy — the why, the journey, the premises that make the direction coherent. Updated when premises shift, not when slides do.',
     why: 'Narratives are how strategy travels across the organisation. Without a maintained narrative, people fill the gap with rumour.',
     fields: ['headline', 'premises[]', 'version', 'last_updated'],
     links: ['decision', 'okr'],
-    wrong: 'Premises moved three months ago but the narrative still references the old framing. Version is stale while the strategy has iterated.',
+    wrong: 'Finding: The "geographic expansion" premise was removed from the active bet 6 weeks ago but still appears here. Signal: Three team members used the old framing in last week\'s all-hands.',
   },
   operating: {
     desc: 'How the organisation runs against the plan. Captures cadences, owners, and the review surfaces where strategy is interrogated.',
     why: 'An operating plan closes the loop between strategic intent and execution rhythm. Without it, strategy lives in documents but not in meetings.',
     fields: ['cadences[]', 'owners[]', 'review_surfaces[]', 'last_reviewed'],
     links: ['okr', 'task', 'systems'],
-    wrong: 'Cadence is on the calendar but the review never references a strategy asset. Owner field is blank. Last reviewed date is more than a quarter ago.',
+    wrong: 'Finding: Weekly strategy review is on the calendar but meeting notes reference no strategy asset. Signal: Last reviewed 94 days ago — two OKR cycles have run since with no cadence update.',
   },
   task: {
     desc: 'A concrete action with an owner and a due date. Always traces up to a goal — it has no meaning without that lineage.',
     why: 'Tasks without goal lineage create motion without direction. The link back to an OKR or experiment is what makes work strategic.',
     fields: ['title', 'owner', 'due', 'status', 'parent_goal'],
     links: ['okr', 'experiment', 'operating'],
-    wrong: 'No goal lineage — not linked to an OKR or experiment. Overdue with no replan. Owner is absent.',
+    wrong: "Finding: Not linked to any OKR or experiment — this task has no strategic lineage. Signal: Overdue by 12 days, no replan. Owner was reassigned in the last reorg and field hasn't been updated.",
   },
   tdmap: {
-    desc: 'Technical debt mapped as a strategic surface. Shows the speed-cost of every shortcut, what it\'s blocking, and what it would take to retire it.',
+    desc: "Technical debt mapped as a strategic surface. Shows the speed-cost of every shortcut, what it's blocking, and what it would take to retire it.",
     why: 'Tech debt is a hidden tax on strategic velocity. Making it visible as a strategic asset forces explicit trade-off conversations.',
     fields: ['items[]', 'interest_rate', 'blast_radius', 'retirement_plan'],
     links: ['capability'],
-    wrong: 'Items growing in interest with no bet or initiative to retire them. Blast radius estimates are outdated. No link to a capability it\'s blocking.',
-  },
-  valuechain: {
-    desc: 'Maps the sequence of primary and support activities that turn inputs into customer value — from sourcing and operations through to sales, service, and infrastructure.',
-    why: 'Reveals which activities are strategic differentiators and which are commodity. Focuses investment and bet selection on the steps that actually compound advantage.',
-    fields: ['primary_activities[]', 'support_activities[]', 'cost_structure', 'margin_target', 'differentiators[]'],
-    links: ['competitive', 'capability', 'bets'],
-    wrong: 'Primary activities listed without cost or margin data. No link to a bet or capability. Support activities haven\'t been reviewed against the last reorganisation.',
+    wrong: 'Signal: Auth service debt compounding at 23% per quarter — no retirement plan. Finding: "Mobile API v2" blocks the new pricing bet but has no assigned owner or delivery timeline.',
   },
 }
 
@@ -253,7 +245,6 @@ export function AssetGraph() {
       if (connectedNodes.has(nodeId)) return 'connected'
       return 'dim'
     }
-    // Nothing hovered — use selected
     if (nodeId === selected) return 'selected'
     if (connectedNodes.has(nodeId)) return 'connected'
     return 'normal'
@@ -346,7 +337,6 @@ export function AssetGraph() {
           padding: '0 12px',
         }}
       >
-        {/* Traffic lights */}
         {['#E5E7EB', '#E5E7EB', '#E5E7EB'].map((c, i) => (
           <span
             key={i}
@@ -405,7 +395,7 @@ export function AssetGraph() {
               top: 0,
               left: '50%',
               transform: 'translateX(-50%)',
-              width: 1100,
+              width: 850,
               height: 640,
             }}
           >

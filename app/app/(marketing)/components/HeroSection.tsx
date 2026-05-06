@@ -70,7 +70,21 @@ export default function HeroSection() {
                 flexShrink: 0,
               }}
             />
-            Now in early access — MCP integration live
+            <span
+              style={{
+                background: mkt.color.accent,
+                color: mkt.color.white,
+                borderRadius: 4,
+                padding: '1px 6px',
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}
+            >
+              New
+            </span>
+            MCP server · your strategy is now an API
           </span>
         </motion.div>
 
@@ -90,7 +104,7 @@ export default function HeroSection() {
             maxWidth: 780,
           }}
         >
-          The strategy OS that{' '}
+          The operating system for{' '}
           <span
             style={{
               fontFamily: mkt.font.serif,
@@ -98,7 +112,7 @@ export default function HeroSection() {
               fontWeight: 400,
             }}
           >
-            thinks with you
+            living strategy.
           </span>
         </motion.h1>
 
@@ -116,9 +130,9 @@ export default function HeroSection() {
             maxWidth: 560,
           }}
         >
-          18 typed strategy assets. A live coherence graph.
-          An intelligence pipeline that runs every time something changes.
-          And a conversation interface grounded in your own strategy — not the internet.
+          Plans, decisions, bets and signals — held together by a graph
+          that notices when they stop adding up. Built for teams who run
+          strategy as a system, not a slide deck.
         </motion.p>
 
         {/* CTA row */}

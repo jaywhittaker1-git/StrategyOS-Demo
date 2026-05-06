@@ -54,16 +54,16 @@ export default function SectionCoherence() {
             style={{
               fontFamily: mkt.font.sans,
               fontSize: mkt.type.h2,
-              fontWeight: 700,
-              letterSpacing: mkt.tracking.h2,
+              fontWeight: 500,
+              letterSpacing: '-0.03em',
               lineHeight: mkt.leading.h2,
               color: mkt.color.textPrimary,
               margin: '0 0 20px',
             }}
           >
-            The graph notices when things{' '}
+            The graph notices{' '}
             <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-              stop adding up
+              when things stop adding up.
             </span>
           </h2>
           <p
