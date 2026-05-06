@@ -1,9 +1,10 @@
 # StrategyOS
 
-A strategy intelligence platform that connects fourteen analytical 
-frameworks into a single asset graph, runs a continuous coherence 
-engine across them, and surfaces conflicts, assumptions, and signals 
-through a conversational reasoning surface built on MCP.
+**[strategy-os-demo.vercel.app](https://strategy-os-demo.vercel.app)** — live marketing site
+
+The operating system for living strategy. Plans, decisions, bets and signals — held together by a graph that notices when they stop adding up.
+
+---
 
 Built solo. Live. Not a prototype.
 
