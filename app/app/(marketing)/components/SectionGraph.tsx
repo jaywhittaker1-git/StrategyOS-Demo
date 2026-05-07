@@ -61,7 +61,7 @@ export default function SectionGraph() {
               margin: '0 0 20px',
             }}
           >
-            Strategy is a graph,{' '}
+            Strategy is a system of relationships,{' '}
             <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
               not a document.
             </span>
@@ -75,9 +75,9 @@ export default function SectionGraph() {
               margin: 0,
             }}
           >
-            Eighteen typed assets. Seventy-plus relationship types. A decision rests on premises;
-            an OKR descends from a bet; a signal contradicts a forecast. StrategyOS makes those
-            relationships first-class — so when the world changes, the right thing changes with it.
+            Strategies fail when decisions, assumptions, metrics and capabilities drift out of sync.
+            StrategyOS models those relationships directly — so when conditions change, you can see
+            what&apos;s affected, what conflicts, and what needs to move next.
           </p>
         </motion.div>
 

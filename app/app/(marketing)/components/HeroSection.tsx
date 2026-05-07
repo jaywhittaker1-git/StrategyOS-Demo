@@ -112,7 +112,7 @@ export default function HeroSection() {
               fontWeight: 400,
             }}
           >
-            living strategy.
+            adaptive strategy.
           </span>
         </motion.h1>
 
@@ -130,9 +130,9 @@ export default function HeroSection() {
             maxWidth: 560,
           }}
         >
-          Plans, decisions, bets and signals — held together by a graph
-          that notices when they stop adding up. Built for teams who run
-          strategy as a system, not a slide deck.
+          StrategyOS turns strategy into a connected system — linking decisions,
+          assumptions, capabilities, risks and signals so the organisation can
+          adapt without losing alignment.
         </motion.p>
 
         {/* CTA row */}
@@ -222,7 +222,7 @@ export default function HeroSection() {
                 letterSpacing: '0.02em',
               }}
             >
-              StrategyOS · Aurelius Global
+              StrategyOS
             </span>
           </div>
 

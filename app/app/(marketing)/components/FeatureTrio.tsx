@@ -224,7 +224,7 @@ const FEATURES = [
     iconFg: '#2563EB',
     title: 'Coherence',
     subtitle: 'The graph knows when things stop adding up',
-    body: 'Eighteen deterministic patterns watch the graph for tension — ownership vacuums, silent constraints, capital concentration, dependency shadows. Conflicts surface as a typed inbox you can resolve.',
+    body: 'Detect when strategy, execution and operating reality begin drifting apart — before the organisation compounds the wrong decisions.',
     pills: ['GCE patterns', 'Signal detection', 'Auto-scoring'],
   },
   {
@@ -238,8 +238,8 @@ const FEATURES = [
   },
   {
     icon: '↗',
-    iconBg: '#F0FDF4',
-    iconFg: '#16A34A',
+    iconBg: '#F5F3FF',
+    iconFg: '#7C3AED',
     title: 'Orientation',
     subtitle: 'From signal to insight to decision, visualised',
     body: 'Walk into any room knowing the bets, the open questions, the latest signal — and what changed since Tuesday. Briefings are assembled, not retyped.',

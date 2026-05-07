@@ -63,9 +63,9 @@ export default function SectionPipeline() {
               marginRight: 'auto',
             }}
           >
-            Intelligence is a pipeline,{' '}
+            Intelligence is orchestration,{' '}
             <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-              not a prompt
+              not a single prompt.
             </span>
           </h2>
           <p
@@ -78,9 +78,9 @@ export default function SectionPipeline() {
               maxWidth: '56ch',
             }}
           >
-            When you lock an asset, four phases run in sequence — each one reading the structured
-            output of the last. Cheap models for high-frequency detection. A larger model only at
-            the end, where synthesis actually earns its cost.
+            StrategyOS runs specialised analysis across your strategic assets — generating signals,
+            detecting tensions, surfacing risks and synthesising recommendations through a structured
+            reasoning pipeline.
           </p>
         </motion.div>
 
