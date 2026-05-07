@@ -61,9 +61,9 @@ export default function SectionConversation() {
                 margin: '0 0 16px',
               }}
             >
-              Talk to your strategy{' '}
+              Ask the strategy system{' '}
               <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-                like a colleague
+                directly.
               </span>
             </h2>
             <p
@@ -75,9 +75,9 @@ export default function SectionConversation() {
                 margin: 0,
               }}
             >
-              Ask anything — across decisions, plans, signals and people. Every answer cites the
-              underlying assets and offers concrete next moves: re-run a model, loop a stakeholder,
-              open a decision.
+              Ask questions across decisions, assumptions, risks, stakeholders and strategic bets.
+              Every answer is grounded in the underlying assets — with citations, linked evidence
+              and suggested next actions.
             </p>
           </div>
 
@@ -90,9 +90,8 @@ export default function SectionConversation() {
               margin: 0,
             }}
           >
-            <span style={{ color: mkt.color.textMuted }}>@-mention</span> any asset to ground the
-            conversation. Replies become drafts you can promote — into a task, a decision memo, or
-            an experiment.
+            Reference any asset directly to constrain the analysis. Responses can be promoted into
+            structured outputs — decisions, experiments, follow-ups or operating actions.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>

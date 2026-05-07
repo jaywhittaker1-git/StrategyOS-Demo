@@ -60,7 +60,7 @@ export default function AssetInventory() {
               margin: '0 0 20px',
             }}
           >
-            18 typed assets.{' '}
+            Structured strategic assets.{' '}
             <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
               Linked by design.
             </span>
@@ -74,9 +74,8 @@ export default function AssetInventory() {
               margin: 0,
             }}
           >
-            Strategy isn&apos;t free-form text. Every artifact has a shape — fields you&apos;d actually fill
-            out, relationships it can have, ways it can be wrong. Hover to trace a dependency.
-            Click to inspect the type.
+            Each asset has a defined structure, relationship model and validation logic — making
+            strategy queryable, analysable and composable across the workspace.
           </p>
         </motion.div>
 

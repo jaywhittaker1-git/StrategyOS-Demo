@@ -25,16 +25,10 @@ const INTEGRATIONS: Integration[] = [
     note: 'Haiku for high-frequency · Sonnet for synthesis. Prompt caching on every system prompt.',
   },
   {
-    name: 'Supabase',
+    name: 'Notion',
     status: 'live',
-    tag: 'Data store',
-    note: 'Row-level security on workspace data. Single source of truth for assets, signals, risks.',
-  },
-  {
-    name: 'Semantic Scholar',
-    status: 'soon',
-    tag: 'Evolution signals',
-    note: 'Paper volume as a leading indicator — 2–4 years ahead of commercialisation.',
+    tag: 'Organisational data',
+    note: 'Pull structured content from wikis, project databases and team knowledge bases.',
   },
   {
     name: 'RSS feeds',
@@ -49,16 +43,22 @@ const INTEGRATIONS: Integration[] = [
     note: 'ASIC, ACCC, APRA, RBA, ATO. Routes to the Decision Stack, not the general feed.',
   },
   {
+    name: 'Semantic Scholar & Patents',
+    status: 'soon',
+    tag: 'Research & evolution signals',
+    note: 'Paper volume as a leading indicator — 2–4 years ahead of commercialisation. Patent trends as lagging corroboration.',
+  },
+  {
     name: 'ABS / BLS',
     status: 'planned',
     tag: 'Financial benchmarks',
     note: 'Calibration for the Financial Model: labour, earnings, industry value-add.',
   },
   {
-    name: 'Patent trends',
+    name: 'Snowflake',
     status: 'planned',
-    tag: 'Evolution signals',
-    note: 'Lagging corroboration alongside Semantic Scholar.',
+    tag: 'Data warehouse',
+    note: 'Surface operational metrics and product data directly into the strategic graph.',
   },
   {
     name: 'Linear · GitHub',

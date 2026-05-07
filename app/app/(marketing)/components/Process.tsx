@@ -9,22 +9,22 @@ const STEPS = [
   {
     num: '01 / Orient',
     title: 'Where are we?',
-    body: 'Pull the current state of the world — signals, market shifts, customer evidence — into a shared frame. No one re-reads the deck.',
+    body: 'Pull market movement, customer evidence and operational reality into a shared frame. The team reorients from the same context.',
   },
   {
     num: '02 / Gather',
     title: 'What do we know?',
-    body: 'Collect evidence for and against each premise. Models, quotes, churn data, competitive moves — typed and linked.',
+    body: 'Gather evidence for and against each premise. Research, metrics, customer signals and competitive movement stay structured and linked.',
   },
   {
     num: '03 / Confirm',
     title: 'What do we believe?',
-    body: 'Convert evidence into a small set of confirmed premises. Disagreement is an asset, not a meeting.',
+    body: 'Convert evidence into a small set of committed beliefs. Disagreement is an asset, not a meeting.',
   },
   {
     num: '04 / Lock',
     title: 'What changes?',
-    body: 'Decisions, bets and OKRs get committed and timestamped. The graph carries forward; the team moves.',
+    body: 'Decisions, bets and operating commitments get locked into the system. The context carries forward as the organisation moves.',
   },
 ]
 
@@ -99,8 +99,9 @@ export default function Process() {
               marginRight: 'auto',
             }}
           >
-            Strategy work has a shape. StrategyOS turns it into a four-step loop the team
-            actually finishes — instead of a 47-page doc nobody reads.
+            Strategy work follows a repeatable rhythm. StrategyOS turns it into a four-step
+            operating loop teams can actually sustain — instead of a strategy deck that drifts
+            out of date.
           </p>
         </motion.div>
 

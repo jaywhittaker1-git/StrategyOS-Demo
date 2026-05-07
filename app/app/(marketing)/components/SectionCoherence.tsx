@@ -61,9 +61,9 @@ export default function SectionCoherence() {
               margin: '0 0 20px',
             }}
           >
-            The graph notices{' '}
+            Detect strategic drift{' '}
             <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-              when things stop adding up.
+              before the organisation feels it.
             </span>
           </h2>
           <p
@@ -75,9 +75,9 @@ export default function SectionCoherence() {
               margin: 0,
             }}
           >
-            A deterministic coherence engine evaluates every committed asset against 18 structural
-            and health patterns. Gaps, contradictions, and staleness are surfaced as findings —
-            not buried in dashboards.
+            StrategyOS continuously evaluates committed assets for structural conflicts, execution
+            risk, dependency fragility and strategic drift. Findings surface immediately — not
+            months later through reporting lag.
           </p>
         </motion.div>
 
@@ -133,9 +133,8 @@ export default function SectionCoherence() {
                 margin: 0,
               }}
             >
-              Eighteen deterministic patterns watch the graph: ownership vacuums, silent
-              constraints, dependency shadows, capital concentration. They run in milliseconds,
-              against structured data — no LLM, no slop, no false positives that don&apos;t replicate.
+              Deterministic checks run against the structured graph to detect ownership vacuums,
+              hidden constraints, fragile dependencies and concentration risk.
             </p>
             <p
               style={{
@@ -146,8 +145,9 @@ export default function SectionCoherence() {
                 margin: 0,
               }}
             >
-              Every finding cites the two assets in tension, why they conflict, and the smallest
-              change that would resolve it. The AI layer reads these findings; it doesn&apos;t invent them.
+              These checks run in seconds against structured state — deterministic, explainable
+              and reproducible. AI synthesis builds on verified system findings instead of
+              generating unsupported conclusions.
             </p>
           </div>
         </motion.div>
@@ -235,9 +235,9 @@ export default function SectionCoherence() {
                   margin: 0,
                 }}
               >
-                Findings have a life.{' '}
+                Signals stay operational{' '}
                 <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-                  Resolved closes the loop.
+                  until resolved.
                 </span>
               </h3>
               <p
@@ -249,9 +249,10 @@ export default function SectionCoherence() {
                   margin: 0,
                 }}
               >
-                Every signal moves through three states. The team can add context, challenge the
-                finding with evidence, or commit to an action. Nothing rots in a backlog — either
-                it changes the strategy, or it gets explicitly closed with a reason.
+                Every finding moves through a defined lifecycle: open, challenged, resolved. Teams
+                can attach evidence, dispute assumptions, assign ownership or commit to action.
+                Signals do not disappear into dashboards or backlog debt. Every resolution leaves
+                a traceable strategic record.
               </p>
             </div>
             <SignalLifecycle />

@@ -84,8 +84,7 @@ export default function Footer() {
                 maxWidth: 280,
               }}
             >
-              The operating system for strategy. Your plans, decisions and signals, held
-              together by a graph.
+              A continuously adaptive strategic reasoning system for organisations and strategists.
             </p>
             <span
               style={{

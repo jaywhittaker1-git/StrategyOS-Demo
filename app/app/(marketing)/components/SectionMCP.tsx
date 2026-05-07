@@ -75,9 +75,9 @@ export default function SectionMCP() {
               margin: 0,
             }}
           >
-            Twenty-seven typed tools, served over MCP. Claude, Cursor, your own agents — anything
-            that speaks the protocol can read your assets, run a coherence check, or capture a
-            signal. Writes are dry-run by default; provenance is recorded on every commit.
+            StrategyOS exposes structured strategy objects over MCP — allowing external agents,
+            tools and workflows to safely interact with the workspace. Writes are dry-run by
+            default, with provenance recorded on every committed change.
           </p>
         </motion.div>
 
@@ -137,9 +137,9 @@ export default function SectionMCP() {
                   margin: 0,
                 }}
               >
-                Strategy stays alive when{' '}
+                Strategy stays current when{' '}
                 <span style={{ fontFamily: mkt.font.serif, fontStyle: 'italic', fontWeight: 400 }}>
-                  the world flows in.
+                  reality flows in.
                 </span>
               </h3>
             </div>
@@ -153,8 +153,10 @@ export default function SectionMCP() {
                 lineHeight: '22px',
               }}
             >
-              Every integration is entity-anchored. A single mention is noise; eight in thirty
-              days, against an asset you locked, is a signal worth surfacing.
+              Integrations continuously enrich the graph with operational data, market movement,
+              research and external systems. Everything stays linked to the strategic assets it
+              affects — so patterns accumulate, benchmarks evolve and meaningful change becomes
+              visible over time.
             </p>
           </div>
           <div
