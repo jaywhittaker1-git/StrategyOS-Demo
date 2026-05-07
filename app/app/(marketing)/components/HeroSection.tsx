@@ -50,41 +50,36 @@ export default function HeroSection() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
+              height: 28,
+              padding: '0 12px 0 4px',
               fontFamily: mkt.font.sans,
               fontSize: 12,
-              fontWeight: 600,
-              color: mkt.color.accentText,
-              background: mkt.color.accentLight,
-              border: `1px solid rgba(37,99,235,0.2)`,
+              fontWeight: 500,
+              color: mkt.color.textSecondary,
+              background: mkt.color.white,
+              border: `1px solid ${mkt.color.hairline}`,
               borderRadius: 99,
-              padding: '5px 14px',
-              letterSpacing: '0.01em',
             }}
           >
             <span
               style={{
-                width: 6,
-                height: 6,
-                borderRadius: '50%',
-                background: mkt.color.accent,
-                flexShrink: 0,
-              }}
-            />
-            <span
-              style={{
-                background: mkt.color.accent,
-                color: mkt.color.white,
-                borderRadius: 4,
-                padding: '1px 6px',
-                fontSize: 10,
-                fontWeight: 700,
-                letterSpacing: '0.04em',
-                textTransform: 'uppercase',
+                display: 'inline-flex',
+                alignItems: 'center',
+                height: 20,
+                padding: '0 8px',
+                borderRadius: 99,
+                background: mkt.color.accentLight,
+                color: mkt.color.accentText,
+                fontSize: 11,
+                fontWeight: 600,
               }}
             >
               New
             </span>
             MCP server · your strategy is now an API
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ color: mkt.color.textMuted, flexShrink: 0 }}>
+              <path d="M2.5 6H9.5M9.5 6L6.5 3M9.5 6L6.5 9" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </span>
         </motion.div>
 
