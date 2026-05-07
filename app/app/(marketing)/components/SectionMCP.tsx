@@ -159,16 +159,7 @@ export default function SectionMCP() {
               visible over time.
             </p>
           </div>
-          <div
-            style={{
-              borderRadius: 12,
-              border: `1px solid ${mkt.color.borderCard}`,
-              overflow: 'hidden',
-              boxShadow: mkt.shadow.window,
-            }}
-          >
-            <IntegrationsGrid />
-          </div>
+          <IntegrationsGrid />
         </motion.div>
       </div>
     </section>

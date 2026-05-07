@@ -37,16 +37,18 @@ export default function NavBar() {
     >
       {/* Brand */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-        <span
+        <Link
+          href="/"
           style={{
             fontSize: 15,
             fontWeight: 700,
             letterSpacing: '-0.01em',
             color: mkt.color.textPrimary,
+            textDecoration: 'none',
           }}
         >
           StrategyOS
-        </span>
+        </Link>
         <span
           style={{
             fontSize: 10,
